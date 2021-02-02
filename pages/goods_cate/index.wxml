@@ -1,0 +1,47 @@
+<view class="container">
+   <view class='header acea-row row-center-wrapper'>
+      <view class='acea-row row-between-wrapper input'>
+         <text class='iconfont icon-sousuo'></text>
+         <input type='text' placeholder='点击搜索商品信息' bindconfirm="searchSubmitValue" confirm-type='search' name="search"  placeholder-class='placeholder'></input>
+      </view>
+   </view>
+   <view class="goods">
+      <view class='aside'>
+         <block wx:for="{{tabList}}" wx:for-item="item" wx:key='index'>
+            <view class='item acea-row row-center-wrapper {{index==navActive?"on":""}}' data-index='{{index}}' data-id='{{item.id}}' bindtap='tap'><text>{{item.name}}</text></view>
+         </block>
+      </view>
+      <view class='right'>
+         <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+            <block wx:for="{{productList}}" wx:for-item="item" wx:key='index'>
+               <view class='good' id="{{item.id}}">
+                  <view class="picView">
+                     <image class="pic" src='{{item.indexImage}}'></image>                 
+                  </view> 
+                  <view class="detail">
+                     <view class="title"> 
+                        {{item.name}}
+                     </view>
+                     <view class="remark">
+                       <text> {{item.remark}}</text>
+                     </view>
+                     <view class="price">
+                        <view class="newPrice">
+                           <text class="symbol">￥</text>
+                           <text class="number">{{item.sum}}</text>
+                        </view>
+                        <view class="oldPrice" wx:if="{{item.oldSum}}">
+                           <text>￥{{item.oldSum}}</text>                        
+                        </view>
+                     </view>
+                     <view class="sale">
+                        <text>累计销量{{item.saleNumber}}件</text>
+                        <image class="pic" src='/pages/image/plus.png'></image>
+                     </view>
+                  </view>               
+               </view>
+            </block>
+          </scroll-view>
+      </view>
+   </view>
+</view>

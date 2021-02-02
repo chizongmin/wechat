@@ -1,0 +1,17 @@
+<!--pages/shopping_bag/index.wxml-->
+
+<view class="container">
+  <view class="top">
+    <view>
+      1111111111111111
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="left">
+        22222222222
+    </view>
+    <view class="right">
+      333222222222
+    </view>
+  </view>
+</view>
