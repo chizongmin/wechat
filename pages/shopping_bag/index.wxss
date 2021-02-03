@@ -1,6 +1,26 @@
 /* pages/shopping_bag/index.wxss */
 page{width: 100%;height: 100%;}
-.top{width: 100%;height: 10%;}
-.bottom{width:100%;display: flex;height: 90%;}
-.bottom .left{width: 20%;height: 100%;}
-.bottom .right{width: 80%;height: 100%;}
+.top{width: 100%;height: 85%;}
+.top .scroll{width: 100%;height: 100%;}
+.top .scroll .item{width: 100%;height: 25%;display: flex;}
+.top .scroll .item .checkRadio{width: 10%;height: 100%;display: flex;align-items:center;justify-content:center;}
+.top .scroll .item .checkRadio .radio{ transform:scale(0.7);}
+.top .scroll .item .goods{width: 65%;height: 100%;padding-top: 15rpx;display:flex;}
+.top .scroll .item .goods .picView{width: 45%;display:flex;align-items:center;justify-content:center;}
+.top .scroll .item .goods .picView .pic{height: 80%;width: 90%;}
+.top .scroll .item .goods .detail{width: 55%;padding:0rpx 0rpx 0rpx 15rpx;}
+.top .scroll .item .goods .detail .title{height:25%;font-size: 30rpx;display: flex;align-items:center;}
+.top .scroll .item .goods .detail .remark{height:30%;font-size: 24rpx;color:#999;}
+.top .scroll .item .goods .detail .price{height:25%;display: flex;align-items:baseline;}
+.top .scroll .item .goods .detail .price .newPrice{color:#fc7c07;}
+.top .scroll .item .goods .detail .price .symbol{font-size: 22rpx}
+.top .scroll .item .goods .detail .price .number{font-size: 35rpx;font-weight:bold;}
+.top .scroll .item .goods .detail .price .oldPrice{font-size: 20rpx;color:#999;margin-left: 20rpx;text-decoration:line-through}
+.top .scroll .item .goods .detail .sale{height:20%;font-size: 20rpx;display: flex;align-items:center;color:#999;justify-content:space-between}
+.top .scroll .item .changeNumber{width: 25%;height: 100%;}
+.top .scroll .item .change{width: 100%;height: 20%;padding-right: 20rpx;}
+.top .scroll .item .change .reduce {width: 25%;height: 100%;color:#999;display: flex;align-items:center;justify-content:flex-start}
+.top .scroll .item .change .number {width: 50%;height: 100%;color:#999;background-color: #f5f5f5;}
+.top .scroll .item .change .number .transform{transform:scale(0.7);}
+.top .scroll .item .change .plus {width: 25%;height: 100%;color:#999;display: flex;align-items:center;justify-content:flex-end}
+.bottom {width: 100%;height: 15%;}

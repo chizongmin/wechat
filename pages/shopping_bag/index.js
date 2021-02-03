@@ -1,18 +1,27 @@
 // pages/shopping_bag/index.js
+import { tabList,tabMapGoods } from '../../api/goods.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      bagList:[]
   },
-
+  tabList: function () {
+    let that=this
+    tabList().then(res=>{
+        //加入缓存
+      that.setData({
+        bagList:res.data[0].goods
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.tabList()
   },
 
   /**

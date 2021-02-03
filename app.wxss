@@ -9,6 +9,7 @@
   padding: 0rpx 0;
   box-sizing: border-box;
 } 
+.middle{display:flex;align-items:center;justify-content:center;}
 view{box-sizing:border-box;}
 .acea-row{display:flex;flex-wrap:wrap;}
 .acea-row.row-top{align-items:flex-start;}

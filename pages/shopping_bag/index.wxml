@@ -2,16 +2,57 @@
 
 <view class="container">
   <view class="top">
-    <view>
-      1111111111111111
-    </view>
+    <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+      <block wx:for="{{bagList}}" wx:for-item="item" wx:key='index'>
+          <view class='item' id="{{item.id}}">
+            <view class="checkRadio">
+              <label class="radio">
+                <radio value="{{item.id}}" checked="true"/>
+              </label>
+            </view>
+            <view class="goods">
+              <view class="picView">
+                <image class="pic" src='{{item.indexImage}}'></image>                 
+              </view> 
+              <view class="detail">
+                <view class="title"> 
+                    {{item.name}}
+                </view>
+                <view class="remark">
+                  <text> {{item.remark}}</text>
+                </view>
+                <view class="price">
+                    <view class="newPrice">
+                      <text class="symbol">￥</text>
+                      <text class="number">{{item.sum}}</text>
+                    </view>
+                    <view class="oldPrice" wx:if="{{item.oldSum}}">
+                      <text>￥{{item.oldSum}}</text>                        
+                    </view>
+                </view>
+                <view class="sale">
+                    <text>累计销量{{item.saleNumber}}件</text>
+                </view>
+              </view>                           
+            </view>
+             <view class="changeNumber middle">
+              <view class="change middle">
+                <view class="reduce">
+                  -
+                </view>
+                <view class="number middle">
+                  <text class="transform">2</text>
+                </view>
+                <view class="plus">
+                  +
+                </view>
+              </view>
+            </view> 
+          </view>
+      </block>
+    </scroll-view>
   </view>
   <view class="bottom">
-    <view class="left">
-        22222222222
-    </view>
-    <view class="right">
-      333222222222
-    </view>
+
   </view>
 </view>
