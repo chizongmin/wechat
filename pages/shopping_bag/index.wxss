@@ -8,8 +8,8 @@ page{width: 100%;height: 100%;}
 .top .scroll .item .checkRadio{width: 12%;height: 100%;display: flex;align-items:center;justify-content:center;}
 .top .scroll .item .checkRadio .radio{ transform:scale(0.7);}
 .top .scroll .item .picView{width: 32%;display:flex;align-items:center;justify-content:center;}
-.top .scroll .item .picView .pic{height: 90%;width: 90%;}
-.top .scroll .item .right{width: 56%;height: 100%;padding:15rpx 15rpx 15rpx 15rpx;}
+.top .scroll .item .picView .pic{height: 82%;width: 80%;}
+.top .scroll .item .right{width: 56%;height: 100%;padding:15rpx 15rpx 15rpx 0rpx;}
 .top .scroll .item .right .rightTop{width: 100%;height: 75%;}
 .top .scroll .item .right .rightTop .title{height:60%;font-size: 30rpx;display: flex;align-items:center;}
 .top .scroll .item .right .rightTop .remark{height:40%;font-size: 24rpx;color:#999;display: flex;align-items:center;}
@@ -25,7 +25,7 @@ page{width: 100%;height: 100%;}
 .top .scroll .item .right .rightBottom .changeNumber .change .number {width: 50%;height: 100%;color:#999;background-color: #f5f5f5;}
 .top .scroll .item .right .rightBottom .changeNumber .change .number .transform{transform:scale(0.7);}
 .top .scroll .item .right .rightBottom .changeNumber .change .plus {width: 25%;height: 100%;color:#999;display: flex;align-items:center;justify-content:flex-end}
-.bottom {width: 100%;height: 12%;background-color:ghostwhite;}
+.bottom {width: 100%;height: 12%;background-color:#f7f7f7;}
 .bottom .tip {width: 100%;height: 30%;font-size: 22rpx;margin-left:35rpx;color:limegreen;display:flex;align-items:flex-end}
 .bottom .commit {width: 100%;height: 70%;display:flex;}
 .bottom .commit .checkRadio{width: 12%;height: 100%}

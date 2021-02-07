@@ -3,7 +3,8 @@
     "pages/goods_cate/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/shopping_bag/index"
+    "pages/shopping_bag/index",
+    "pages/goods_detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

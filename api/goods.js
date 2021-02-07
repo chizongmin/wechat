@@ -21,3 +21,6 @@ export function updateBagTotal(data) {
 export function deleteByIds(data) {
   return request.post('wxGoodsBag/deleteByIds',data);
 }
+export function goodsDetail(data) {
+  return request.get('wxGoods/findById',data);
+}

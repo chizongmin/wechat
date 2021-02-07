@@ -14,7 +14,7 @@
       <view class='right'>
          <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
             <block wx:for="{{productList}}" wx:for-item="item" wx:key='index'>
-               <view class='good' id="{{item.id}}">
+               <view class='good' id="{{item.id}}" data-id='{{item.id}}' bindtap='detailClick'>
                   <view class="picView">
                      <image class="pic" src='{{item.indexImage}}'></image>                 
                   </view> 
@@ -36,7 +36,7 @@
                      </view>
                      <view class="sale">
                         <text>累计销量{{item.saleNumber}}件</text>
-                        <image class="pic" src='/pages/image/plus.png' data-id='{{item.id}}' bindtap="saveToBag"></image>
+                        <image class="pic" src='/pages/image/plus.png' data-id='{{item.id}}' catchtap="saveToBag"></image>
                      </view>
                   </view>               
                </view>

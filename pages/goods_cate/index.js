@@ -56,6 +56,17 @@ Page({
       
     })
   },
+  detailClick:function(e){
+    let id = e.currentTarget.dataset.id;
+    console.log(id)
+    wx.navigateTo({
+      url: '/pages/goods_detail/index',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { id: id })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
