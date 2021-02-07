@@ -1,5 +1,5 @@
 // pages/goods_cate/index.js
-import { tabList,tabMapGoods } from '../../api/goods.js';
+import { tabList,tabMapGoods,saveToBag } from '../../api/goods.js';
 Page({
 
   /**
@@ -47,6 +47,14 @@ Page({
     this.setData({
       productList:searchList
     });
+  },
+  saveToBag: function (e){
+    let that=this
+    let id = e.currentTarget.dataset.id;
+    console.log(id)
+    saveToBag({goodsId:id}).then(res=>{
+      
+    })
   },
   /**
    * 生命周期函数--监听页面加载

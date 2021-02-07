@@ -1,6 +1,7 @@
 module.exports = {
   // 请求域名 格式： https://您的域名
   HTTP_REQUEST_URL:'http://127.0.0.1:8080/',
+  // HTTP_REQUEST_URL:'http://123.56.45.131:1022/share-beta/',
   // Socket链接 暂不做配置
   WSS_SERVER_URL:'',
 

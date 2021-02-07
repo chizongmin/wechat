@@ -26,7 +26,7 @@
                        <text> {{item.remark}}</text>
                      </view>
                      <view class="price">
-                        <view class="newPrice">
+                        <view class="newPrice middle">
                            <text class="symbol">￥</text>
                            <text class="number">{{item.sum}}</text>
                         </view>
@@ -36,7 +36,7 @@
                      </view>
                      <view class="sale">
                         <text>累计销量{{item.saleNumber}}件</text>
-                        <image class="pic" src='/pages/image/plus.png'></image>
+                        <image class="pic" src='/pages/image/plus.png' data-id='{{item.id}}' bindtap="saveToBag"></image>
                      </view>
                   </view>               
                </view>

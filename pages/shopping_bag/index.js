@@ -1,27 +1,174 @@
 // pages/shopping_bag/index.js
-import { tabList,tabMapGoods } from '../../api/goods.js';
+import { bagList ,updateBagTotal,deleteByIds} from '../../api/goods.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      bagList:[]
+      bagList:[],
+      checkedAll:true,
+      price:0,
+      total:0,
+      action:'编辑'
   },
-  tabList: function () {
+  bagList: function () {
     let that=this
-    tabList().then(res=>{
+    let checkedAll=true
+    bagList().then(res=>{   
+      if(res.data.length==0){
+        checkedAll=null
+      } 
         //加入缓存
       that.setData({
-        bagList:res.data[0].goods
+        bagList:res.data,
+        checkedAll:checkedAll
       })
+      this.computedPrice()
     })
+  },
+  totalChange:function(e){
+    var index = e.currentTarget.dataset.index
+    var id = e.currentTarget.dataset.id
+    var action = e.currentTarget.dataset.action
+    var bagTotalIndex = "bagList[" + index + "].bagTotal";
+    let bagTotal=this.data.bagList[index].bagTotal
+    let finalTotal=bagTotal
+    if(action=="plus"){
+      finalTotal=bagTotal+1
+      this.setData({
+        [bagTotalIndex]:finalTotal
+       })
+    }else{
+      if(bagTotal-1<1){//提示是否删除
+        wx.showToast({
+          title: '最少购买一件哦！',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }else{
+        finalTotal=bagTotal-1
+        this.setData({
+          [bagTotalIndex]:finalTotal
+         })
+      }    
+    }
+    this.computedPrice()
+    updateBagTotal({id:id,total:finalTotal})
+  },
+  computedPrice:function(){
+    let checkedGoods=this.data.bagList.filter(item=>item.checked==true)
+    if(checkedGoods){
+      let price=0
+      let total=0
+      checkedGoods.forEach(function(item){
+        price+=item.sum*item.bagTotal
+        total+=item.bagTotal
+      })
+      this.setData({
+        price:price,
+        total:total
+       })
+    }
+  },
+  radioClick:function(e){
+    var index = e.currentTarget.dataset.index
+    var item=this.data.bagList[index]
+    var checked = "bagList[" + index + "].checked";
+    if(item.checked==true){
+      this.setData({
+       [checked]:null
+      })
+    }else{
+      this.setData({
+        [checked]:true
+      })
+    }
+    this.computeSelectStatus()
+    this.computedPrice()
+  },
+  selectAll:function(){
+    let that=this
+    if(that.data.checkedAll==true){
+      this.data.bagList.forEach(function(item,index){
+        var checked = "bagList[" + index + "].checked";
+        that.setData({
+          [checked]:null,         
+        })
+      })
+      that.setData({
+        checkedAll:null,         
+      })
+    }else{
+      this.data.bagList.forEach(function(item,index){
+        var checked = "bagList[" + index + "].checked";
+        that.setData({
+          [checked]:true,         
+        })
+      })
+      that.setData({
+        checkedAll:true,         
+      })
+    }
+    this.computedPrice()
+  },
+  computeSelectStatus:function(){
+//校验是否全部选中
+    let unChecked=this.data.bagList.find(item=>item.checked!=true)
+    if(!unChecked){
+      this.setData({
+        checkedAll:true
+      })
+    }else{
+      this.setData({
+        checkedAll:null
+      })
+    }
+  },
+  changeAction:function(){
+    let action=this.data.action
+    if(action=='编辑'){
+      this.setData({
+        action:'完成'
+      })
+    }else{
+      this.setData({
+        action:'编辑'
+      })
+      this.computedPrice()
+    }
+  },
+  delete:function(){
+    let bagList=this.data.bagList
+    let remainList=[]
+    let deleteList=[]
+    bagList.forEach(function(item){
+      if(item.checked==true){
+        deleteList.push(item.id)
+      }else{
+        remainList.push(item)
+      }     
+  })
+    if(deleteList.length==0){
+      wx.showToast({
+        title: '最少选择一个哦！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    this.setData({
+      bagList:remainList
+    })
+    this.computedPrice()
+    deleteByIds({ids:deleteList})
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.tabList()
+    this.bagList()
   },
 
   /**
