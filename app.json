@@ -4,7 +4,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/shopping_bag/index",
-    "pages/goods_detail/index"
+    "pages/goods_detail/index",
+    "pages/order_confirm/index",
+    "pages/address_list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

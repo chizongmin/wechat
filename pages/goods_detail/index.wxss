@@ -1,0 +1,22 @@
+page{width: 100%;height: 100%;}
+.scroll{width: 100%;height: 88%;}
+.scroll .pic{width: 100%;height: 50%;}
+.scroll .pic .swiper{width: 100%;height: 100%;}
+.scroll .pic .swiper .image{width: 100%;height: 100%;} 
+.scroll .scrollBottom {width: 100%;padding: 0 20rpx 0 20rpx;margin-top: 25rpx;}
+.scroll .scrollBottom .title{width: 100%;height: auto; margin: 10rpx 0 20rpx 0;}
+.scroll .scrollBottom .remark{width: 100%;height: auto;margin: 0rpx 0 20rpx 0;font-size: 30rpx;color:#999;}
+.scroll .scrollBottom .priceSale{width: 100%;height: 10%;display: flex;justify-content: space-between;align-items: center;}
+.scroll .scrollBottom .priceSale .price{display: flex;align-items:baseline;}
+.scroll .scrollBottom .priceSale .price .newPrice{color:#fc7c07;}
+.scroll .scrollBottom .priceSale .price .symbol{font-size: 35rpx;padding-top: 18rpx;}
+.scroll .scrollBottom .priceSale .price .number{font-size: 55rpx;font-weight:bold;}
+.scroll .scrollBottom .priceSale .price .oldPrice{font-size: 35rpx;color:#999;margin-left: 20rpx;text-decoration:line-through}
+.scroll .scrollBottom .priceSale .sale{font-size: 32rpx;display: flex;align-items:center;color:#999;justify-content:space-between}
+.scroll .split{width: 100%;height: 20rpx;background-color:#f7f7f7;margin-top: 10rpx;}
+.scroll .desc{width: 100%;padding: 0 20rpx 0 20rpx;}
+.scroll .desc .title{width: 100%;height: auto;margin: 20rpx 0 20rpx 0;}
+.scroll .desc .body{width: 100%;height: auto;font-size: 32rpx;color:#999;}
+.bottom{width: 100%;height: 12%;display: flex;align-items:center;justify-content:space-between;padding:0 30rpx 0 30rpx;}
+.bottom .commit .button { border-radius: 30px;background: #fc7c07;color: white;font-weight: normal; border:solid 1rpx;}
+.bottom .saveTobag .button { border-radius: 30px;background: white;color: #999;font-weight: normal; border:solid 1rpx;}

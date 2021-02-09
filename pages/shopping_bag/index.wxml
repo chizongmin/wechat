@@ -79,13 +79,13 @@
       </view>
       <view  class="commitMiddle middle"  wx:else></view>
       <view class="commitButton middle"  wx:if="{{action=='编辑'}}">
-        <button class="button" size="mini">
-          <text class="text">去结算({{total}})</text>
+        <button class="button" size="mini" bindtap="confirm">
+          <text class="text" style="font-size:35rpx">去结算({{total}})</text>
         </button>
       </view>
       <view  class="commitButton middle" wx:else>
         <button class="button" size="mini" bindtap="delete">
-          <text class="text">删除({{total}})</text>
+          <text class="text" style="font-size:35rpx">删除({{total}})</text>
         </button>
       </view>
     </view>

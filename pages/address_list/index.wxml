@@ -1,0 +1,44 @@
+<view class="container">
+  <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+    <block>
+      <view class="block">
+        <view class="address">
+          <view class="contact">
+            <view class="building">
+              <text>紫晶苑小区22号楼三单元201</text>
+            </view>
+            <view class="namePhone">
+              <text>郭喜明 321321321321312</text>
+            </view>
+          </view>
+          <view class="edit middle">         
+            <image src="/image/edit.png" class="image"></image>    
+          </view>
+        </view>
+        <view class="splitLine"/>
+      </view>      
+    </block>
+    <block>
+      <view class="block">
+        <view class="address">
+          <view class="contact">
+            <view class="building">
+              <text>紫晶苑小区22号楼三单元201</text>
+            </view>
+            <view class="namePhone">
+              <text>郭喜明 321321321321312</text>
+            </view>
+          </view>
+          <view class="edit middle">         
+            <image src="/image/edit.png" class="image"></image>    
+          </view>
+        </view>
+      </view>      
+    </block>
+  </scroll-view>
+  <view class="bottom middle">
+    <button class="button" size="mini" style="width:500rpx;height:85rpx">
+        <text class="text" style="font-size:35rpx">新建收货地址</text>
+    </button>
+  </view>
+</view>

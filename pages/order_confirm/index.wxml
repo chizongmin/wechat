@@ -1,0 +1,90 @@
+<view class="container">
+  <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+    <view class="body middle">
+      <view class="midd">
+        <view class="delivery" bindtap="addressChoose">
+          <view class="title">
+            <text>配送至</text>
+          </view>
+          <view class="contact">
+            <text>紫晶苑小区22号楼三单月201</text>
+            <image src="/image/enter.png" class="enter"></image>
+          </view>
+          <view class="contact">
+            <text>郭新明   1321321321</text>
+          </view>
+          <view class="splitLine"></view>
+          <view class="title">
+            <text>送达时间</text>
+          </view>
+          <view class="tip">
+            <text>您的订单最晚于明天送达</text>
+          </view>
+        </view>
+        <view class="split"></view>
+        <view class="pay">
+          <view class="coupon">
+              <view class="title">
+                  <text>优惠券</text>
+              </view>
+              <view class="couponMoney">
+                  <text class="middle">{{coupon.money==null?'无':('￥'+coupon.money)}}</text>
+                  <image src="/image/enter.png" class="enter"></image>
+              </view>
+          </view>
+          <view class="splitLine"></view>
+          <view class="priceShow">
+            <view class="title">
+                  <text>商品金额</text>
+              </view>
+              <view class="couponMoney">
+                  <text>￥{{goodsSum}}</text>
+              </view>
+          </view>
+          <view class="splitLine"></view>
+          <view class="split"></view>
+          <view class="goodsView">
+            <block wx:for="{{confirmGoods}}" wx:for-item="item" wx:key='index'>
+              <view class="goods">
+                <view class="picView">
+                  <image class="pic" src='{{item.indexImage}}'></image>                 
+                </view>
+                <view class="right">
+                  <view class="rightTop">
+                    <view class="title"> 
+                      <text> {{item.name}}</text>                 
+                      </view>
+                  </view>
+                  <view class="rightBottom">
+                    <view class="price">
+                        <view class="newPrice">
+                          <text class="symbol">￥</text>
+                          <text class="number">{{item.sum}}</text>
+                        </view>
+                    </view>
+                    <view class="changeNumber">
+                      <text>x {{item.confirmCount}}</text>
+                    </view> 
+                  </view>
+                </view>
+            </view>
+           </block>
+          </view>
+        </view>
+        <view class="split"></view>
+        <view class="remark">
+          <text>备注</text>
+          <input class="weui-input placeholder" maxlength="50" placeholder="无" bindinput='inputChange' data-name='remark' />
+        </view>      
+        <view class="blank">
+          <text></text>
+        </view>     
+      </view>
+    </view>
+  </scroll-view>
+  <view class="bottom middle">
+    <button class="button" size="mini" style="width:500rpx;height:85rpx">
+        <text class="text" style="font-size:35rpx">微信支付￥{{paySum}}</text>
+    </button>
+  </view>
+</view>

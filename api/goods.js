@@ -24,3 +24,6 @@ export function deleteByIds(data) {
 export function goodsDetail(data) {
   return request.get('wxGoods/findById',data);
 }
+export function confirmGoods(data) {
+  return request.post('wxGoods/findByIds',data);
+}

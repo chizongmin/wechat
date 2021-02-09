@@ -176,7 +176,25 @@ Page({
     })
   },
   nothing:function(){
-
+  },
+  confirm:function(e){
+    let checked=this.data.bagList.filter(item=>item.checked==true)
+    if(!checked){
+      wx.showToast({
+        title: '最少选择一个哦！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    let params=checked.map(item=>{return {id:item.id,count:item.bagTotal}})
+    wx.navigateTo({
+      url: '/pages/order_confirm/index',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', params)
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

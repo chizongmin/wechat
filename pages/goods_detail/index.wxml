@@ -1,0 +1,57 @@
+<view class="container">
+  <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'> 
+    <view class="pic">
+      <swiper class="swiper" indicator-dots="true" indicator-color="white" indicator-active-color="#fc7c07">
+        <block wx:for="{{goods.detailFileList}}" wx:for-item="item" wx:key='index'>
+          <swiper-item>
+            <image class="image" src="{{item.url}}" mode="cover" lazy-load='true'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view> 
+    <view class="scrollBottom">
+      <view class="title">
+        <text>{{goods.name}}</text>
+       </view>
+        <view class="remark">
+           <text>{{goods.remark}}</text>
+        </view>
+        <view class="priceSale">
+          <view class="price">
+            <view class="newPrice middle">
+              <text class="symbol">￥</text>
+                <text class="number">{{goods.sum}}</text>
+            </view>
+            <view class="oldPrice" wx:if="{{goods.oldSum}}">
+                <text>￥{{goods.oldSum}}</text>                        
+            </view>
+          </view>
+          <view class="sale">
+            <text>已售{{goods.saleNumber}}件</text>
+          </view>
+        </view>
+    </view>
+    <view class="split"></view>
+    <view class="desc">
+      <view class="title">
+        <text>商品详情</text>
+      </view>
+      <view class="body">
+        <text>{{goods.desc}}</text>
+      </view>
+    </view>
+
+  </scroll-view>
+  <view class="bottom">
+    <view class="saveTobag" data-id='{{goods.id}}' bindtap="saveToBag">
+      <button class="button" size="mini" style="width:260rpx;height:72rpx">
+        <text class="text" style="font-size:35rpx">加购物车</text>
+      </button>
+    </view>
+    <view class="commit"  data-id='{{goods.id}}' bindtap="confirm">
+      <button class="button" size="mini" style="width:260rpx;height:80rpx">
+        <text class="text"  style="font-size:35rpx">立即购买</text>
+      </button>
+    </view>
+  </view>
+</view>
