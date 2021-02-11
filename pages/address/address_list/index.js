@@ -1,4 +1,5 @@
 // pages/address_list/index.js
+import { addressList} from '../../../api/address.js';
 Page({
 
   /**
@@ -7,7 +8,28 @@ Page({
   data: {
 
   },
-
+  addAddress:function(e){
+    let id = e.currentTarget.dataset.id;
+    console.log(id)
+    wx.navigateTo({
+      url: '/pages/address/address_save/index',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', [{id:id,count:1}])
+      }
+    })
+  },
+  updateAddress:function(e){
+    let id = e.currentTarget.dataset.id;
+    console.log(id)
+    wx.navigateTo({
+      url: '/pages/address/address_update/index',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', [{id:id,count:1}])
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

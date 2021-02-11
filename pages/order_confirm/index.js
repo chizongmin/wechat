@@ -1,5 +1,6 @@
 // pages/order_confirm/index.js
 import { confirmGoods} from '../../api/goods.js';
+import { defaultAddress} from '../../api/address.js';
 Page({
 
   /**
@@ -31,7 +32,7 @@ Page({
   },
   addressChoose:function(e){
     wx.navigateTo({
-      url: '/pages/address_list/index',
+      url: '/pages/address/address_list/index',
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', {})

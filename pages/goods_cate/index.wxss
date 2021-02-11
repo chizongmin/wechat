@@ -1,9 +1,10 @@
 page{width: 100%;height: 100%;}
+.image{width:35rpx;height: 35rpx;margin-left: 25rpx;}
 .header{width:100%;height:10%;background-color:#fff;left:0;right:0;z-index:9;border-bottom:1rpx solid #f5f5f5;}
-.header .input{width:90%;height:60%;background-color:#f5f5f5;border-radius:50rpx;box-sizing:border-box;padding:0 25rpx;}
+.header .input{width:90%;height:60%;background-color:#f5f5f5;border-radius:50rpx;display:flex;align-items: center;}
 .header .input .iconfont{font-size:35rpx;color:#555;}
 .header .input .placeholder{color:#999;}
-.header .input input{font-size:26rpx;height:100%;width: 90%;}
+.header .input input{font-size:26rpx;height:100%;width: 90%;margin-left: 20rpx;}
 .goods{display:flex;width:100%;height: 90%;}
 .goods .aside{width:20%;height:100%;background-color:#f5f5f5;}
 .goods .aside .item{height:13%;font-size:26rpx;color:#555;}

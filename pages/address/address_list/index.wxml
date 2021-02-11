@@ -6,12 +6,15 @@
           <view class="contact">
             <view class="building">
               <text>紫晶苑小区22号楼三单元201</text>
+              <view class="default middle">
+                  <text>默认</text>
+              </view>
             </view>
             <view class="namePhone">
               <text>郭喜明 321321321321312</text>
             </view>
           </view>
-          <view class="edit middle">         
+          <view class="edit middle" bindtap="updateAddress">         
             <image src="/image/edit.png" class="image"></image>    
           </view>
         </view>
@@ -36,7 +39,7 @@
       </view>      
     </block>
   </scroll-view>
-  <view class="bottom middle">
+  <view class="bottom middle" bindtap="addAddress">
     <button class="button" size="mini" style="width:500rpx;height:85rpx">
         <text class="text" style="font-size:35rpx">新建收货地址</text>
     </button>

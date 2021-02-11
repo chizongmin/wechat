@@ -6,7 +6,11 @@
     "pages/shopping_bag/index",
     "pages/goods_detail/index",
     "pages/order_confirm/index",
-    "pages/address_list/index"
+    "pages/address/address_list/index",
+    "pages/address/address_save/index",
+    "pages/address/address_update/index",
+    "pages/address/address_select/index",
+    "pages/address/address_public/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

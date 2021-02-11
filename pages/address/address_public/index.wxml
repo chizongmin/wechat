@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header middle">
+    <view class='input'>
+      <image src="/image/search.png" class="image"></image>    
+         <input type='text' placeholder='点击搜索地点信息' bindconfirm="searchSubmitValue" confirm-type='search' name="search"  placeholder-class='placeholder'></input>
+      </view>
+  </view>
+  <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+    <block wx:for="{{list}}" wx:for-item="item" wx:key='index'>
+        <view class="block">
+          <view class="villager">
+              <text>{{item.name}}</text>
+          </view>
+          <block wx:for="{{item.children}}" wx:for-item="item_item" wx:key='index_index'>
+              <view class="country">
+                <text>{{item_item.name}}</text>
+              </view>
+          </block>
+        </view>
+    </block>
+  </scroll-view>
+</view>

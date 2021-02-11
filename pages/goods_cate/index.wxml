@@ -1,14 +1,14 @@
 <view class="container">
-   <view class='header acea-row row-center-wrapper'>
-      <view class='acea-row row-between-wrapper input'>
-         <text class='iconfont icon-sousuo'></text>
+   <view class='header middle'>
+      <view class='input'>
+         <image src="/image/search.png" class="image"></image>   
          <input type='text' placeholder='点击搜索商品信息' bindconfirm="searchSubmitValue" confirm-type='search' name="search"  placeholder-class='placeholder'></input>
       </view>
    </view>
    <view class="goods">
       <view class='aside'>
          <block wx:for="{{tabList}}" wx:for-item="item" wx:key='index'>
-            <view class='item acea-row row-center-wrapper {{index==navActive?"on":""}}' data-index='{{index}}' data-id='{{item.id}}' bindtap='tap'><text>{{item.name}}</text></view>
+            <view class='item middle {{index==navActive?"on":""}}' data-index='{{index}}' data-id='{{item.id}}' bindtap='tap'><text>{{item.name}}</text></view>
          </block>
       </view>
       <view class='right'>

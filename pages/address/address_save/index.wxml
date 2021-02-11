@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="body">
+    <view class="address">
+      <view class="choose" bindtap="addressSelect">
+        <view class="title">
+          <text>地址</text>
+        </view>
+        <view class="chooseVillager middle"></view>
+        <view class="middle">
+          <image src="/image/enter.png" class="enter"></image>
+        </view>
+      </view>
+      <view class="detail">
+        <input  class="detailInput" placeholder-class="placeholder"  maxlength="50" placeholder="请输入送货详细地址，如1号楼1单元101" bindinput='inputChange' data-name='remark' />
+      </view>
+    </view>
+    <view class="name">
+      <view class="title">
+        <text>姓名</text>
+      </view>
+      <input  placeholder-class="placeholder" class="input" maxlength="6" placeholder="请输入联系人姓名" bindinput='inputChange' data-name='remark' />
+    </view>
+    <view class="phone">
+      <view class="title">
+        <text>电话</text>
+      </view>     
+      <input placeholder-class="placeholder" class="input" maxlength="11" placeholder="请输入联系人电话" bindinput='inputChange' data-name='remark' />
+     </view>
+    <view class="bottom middle" bindtap="save">
+      <button class="button" size="mini" style="width:500rpx;height:85rpx">
+        <text class="text" style="font-size:35rpx">保存</text>
+      </button>
+    </view>
+  </view>
+</view>
