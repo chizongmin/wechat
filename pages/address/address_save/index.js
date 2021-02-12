@@ -7,8 +7,8 @@ Page({
    */
   data: {
     addressId:null,
-    addressName:"",
-    fAddressName:"",
+    strVillager:"",
+    strCountry:"",
     detail:null,
     name:null,
     phone:null,
@@ -76,8 +76,8 @@ Page({
           acceptAddressSelect(data){
             that.setData({
               addressId:data.id,
-              addressName:data.name,
-              fAddressName:data.fname
+              strVillager:data.name,
+              strCountry:data.fname
             })
           }
       } ,

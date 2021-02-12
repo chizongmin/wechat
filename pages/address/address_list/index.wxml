@@ -1,11 +1,11 @@
 <view class="container">
   <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
     <block  wx:for="{{list}}" wx:for-item="item" wx:key='index'>
-      <view class="block">
+      <view class="block" bindtap="chooseAddress" data-item="{{item}}">
         <view class="address">
           <view class="contact">
             <view class="building">
-              <text>{{item.strCountry+item.strVillager}}</text>
+              <text>{{item.strCountry}}{{item.strVillager}}</text>
               <view class="default middle" wx:if="{{item.default}}">
                   <text>默认</text>
               </view>
@@ -14,7 +14,7 @@
               <text>{{item.name}}  {{item.phone}}</text>
             </view>
           </view>
-          <view class="edit middle" bindtap="updateAddress">         
+          <view class="edit middle"  catchtap="updateAddress" data-item="{{item}}">         
             <image src="/image/edit.png" class="image"></image>    
           </view>
         </view>

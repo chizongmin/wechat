@@ -8,8 +8,26 @@ Page({
   data: {
       list:[]
   },
+  chooseAddress(e){
+    let that=this
+    let item = e.currentTarget.dataset.item;
+    const eventChannel = that.getOpenerEventChannel()
+    eventChannel.emit('acceptChooseAddress', item);
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   addAddress:function(){
     let that=this
+    let list=this.data.list
+    if(list.length>4){
+      wx.showToast({
+        title: '收货地址最多能创建五个！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/address/address_save/index',
       events:{
@@ -36,13 +54,40 @@ Page({
     })
   },
   updateAddress:function(e){
-    let id = e.currentTarget.dataset.id;
-    console.log(id)
+    let that=this
+    let item = e.currentTarget.dataset.item;
+    let list=that.data.list
     wx.navigateTo({
       url: '/pages/address/address_update/index',
+      events:{
+        acceptUpdateAddress(address){
+          list.forEach((item,index)=>{
+            var addressIndex = "list[" + index + "]";
+            if(address.id==item.id){
+              that.setData({
+                [addressIndex]:address
+              })
+            }else{
+              if(address.default){//其他选项设置为非默认
+                let addressDefaultIndex = "list[" + index + "].default";
+                that.setData({
+                  [addressDefaultIndex]:false
+                })
+              }
+            }
+          })
+        },
+        acceptDeleteAddress(data){
+            let deleteId=data.id
+            let newList=list.filter(item=>item.id!=deleteId)
+            that.setData({
+              list:newList
+            })
+        }
+      },
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', [{id:id,count:1}])
+        res.eventChannel.emit('acceptDataFromOpenerPage', item)
       }
     })
   },

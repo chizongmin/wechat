@@ -1,20 +1,21 @@
 <view class="container">
   <view class="body">
-    <view class="address">
-      <view class="choose" bindtap="addressSelect">
-        <view class="title">
-          <text>地址</text>
-        </view>
-        <view class="chooseVillager">
-          <text>{{fAddressName}} {{addressName}}</text>
-        </view>
-        <view class="middle">
-          <image src="/image/enter.png" class="enter"></image>
-        </view>
+    <view class="address"  bindtap="addressSelect">
+      <view class="title">
+        <text>小区地址</text>
       </view>
-      <view class="detail">
-        <input  class="detailInput" placeholder-class="placeholder"  maxlength="50" placeholder="请输入送货详细地址，如1号楼1单元101" bindinput='inputChange' data-name='detail' />
+      <view class="chooseVillager">
+        <text>{{strCountry}} {{strVillager}}</text>
       </view>
+      <view class="middle">
+        <image src="/image/enter.png" class="enter"></image>
+      </view>
+    </view>
+    <view class="addressDetail">
+      <view class="title">
+        <text>门牌号</text>
+      </view>
+      <input  class="detailInput" placeholder-class="placeholder"  maxlength="50" placeholder="请输入楼号单元门牌号，如1号楼1单元101" bindinput='inputChange' data-name='detail' />
     </view>
     <view class="name">
       <view class="title">

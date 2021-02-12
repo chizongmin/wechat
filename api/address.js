@@ -11,3 +11,6 @@ export function upsertAddress(data) {
 export function publicAddress(data) {
   return request.get('wxUserAddress/publicAddress',data);
 }
+export function deleteById(data) {
+  return request.get('wxUserAddress/deleteById',data);
+}
