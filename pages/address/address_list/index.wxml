@@ -1,17 +1,17 @@
 <view class="container">
   <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
-    <block>
+    <block  wx:for="{{list}}" wx:for-item="item" wx:key='index'>
       <view class="block">
         <view class="address">
           <view class="contact">
             <view class="building">
-              <text>紫晶苑小区22号楼三单元201</text>
-              <view class="default middle">
+              <text>{{item.strCountry+item.strVillager}}</text>
+              <view class="default middle" wx:if="{{item.default}}">
                   <text>默认</text>
               </view>
             </view>
             <view class="namePhone">
-              <text>郭喜明 321321321321312</text>
+              <text>{{item.name}}  {{item.phone}}</text>
             </view>
           </view>
           <view class="edit middle" bindtap="updateAddress">         
@@ -19,23 +19,6 @@
           </view>
         </view>
         <view class="splitLine"/>
-      </view>      
-    </block>
-    <block>
-      <view class="block">
-        <view class="address">
-          <view class="contact">
-            <view class="building">
-              <text>紫晶苑小区22号楼三单元201</text>
-            </view>
-            <view class="namePhone">
-              <text>郭喜明 321321321321312</text>
-            </view>
-          </view>
-          <view class="edit middle">         
-            <image src="/image/edit.png" class="image"></image>    
-          </view>
-        </view>
       </view>      
     </block>
   </scroll-view>

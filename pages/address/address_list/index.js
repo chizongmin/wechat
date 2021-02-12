@@ -6,16 +6,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      list:[]
   },
-  addAddress:function(e){
-    let id = e.currentTarget.dataset.id;
-    console.log(id)
+  addAddress:function(){
+    let that=this
     wx.navigateTo({
       url: '/pages/address/address_save/index',
+      events:{
+         acceptAddAddress(address){
+            let list=that.data.list
+            if(address.default){//默认，其他选项设置为非默认
+              list.forEach((item,index)=>{
+                var addressIndex = "list[" + index + "].default";
+                item.default=false
+                that.setData({
+                  [addressIndex]:false
+                })
+              })
+            }
+            list.push(address)
+            that.setData({
+                list:list
+            })
+         }
+      },
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', [{id:id,count:1}])
       }
     })
   },
@@ -34,7 +50,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that=this
+    addressList().then(res=>{
+        that.setData({
+          list:res.data
+        })
+    })
   },
 
   /**

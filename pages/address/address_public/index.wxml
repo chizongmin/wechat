@@ -12,7 +12,7 @@
               <text>{{item.name}}</text>
           </view>
           <block wx:for="{{item.children}}" wx:for-item="item_item" wx:key='index_index'>
-              <view class="country">
+              <view class="country" bindtap="addressSelect" data-id="{{item_item.id}}" data-name="{{item_item.name}}" data-fname="{{item.name}}">
                 <text>{{item_item.name}}</text>
               </view>
           </block>

@@ -9,13 +9,35 @@ Page({
     list:[]
 
   },
-
+  searchSubmitValue(e){
+    let that=this
+    let keyword=e.detail.value
+    wx.showLoading({
+      title: '加载中',
+    })
+    publicAddress({keyword:keyword}).then(res=>{
+      that.setData({
+        list:res.data
+      })
+      wx.hideLoading()
+  })
+  },
+  addressSelect(e){
+    var id = e.currentTarget.dataset.id;
+    var name = e.currentTarget.dataset.name;
+    var fname = e.currentTarget.dataset.fname;
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.emit('acceptAddressSelect', {id: id,name:name,fname:fname});
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that=this
-    publicAddress().then(res=>{
+    publicAddress({}).then(res=>{
         that.setData({
           list:res.data
         })

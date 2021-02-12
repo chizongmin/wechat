@@ -6,18 +6,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address:{}
+    addressId:null,
+    addressName:"",
+    fAddressName:"",
+    detail:null,
+    name:null,
+    phone:null,
+    default:false
+  },
+  switchDefalut(e){
+    let switchValue=e.detail.value
+    this.setData({
+      default:switchValue
+    })
   },
   save(){
-    let address=this.data.address
+    let address=this.data
+    //校验参数
+    if(!address.addressId){
+      wx.showToast({
+        title: '请选择收货地址！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if(!address.detail){
+      wx.showToast({
+        title: '请填写详细送货地址！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if(!address.name){
+      wx.showToast({
+        title: '请填写详联系人姓名！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if(!address.phone){
+      wx.showToast({
+        title: '请填写详联系人电话！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     let that=this
+    wx.showLoading({
+      title: '加载中',
+    })
     upsertAddress(address).then(res=>{
-        //加入缓存
+      const eventChannel = this.getOpenerEventChannel()
+      eventChannel.emit('acceptAddAddress', res.data);
+      wx.hideLoading()
+      wx.navigateBack({
+        delta: 1
+      })
     })
   },
   addressSelect:function(e){
+    let that=this
     wx.navigateTo({
       url: '/pages/address/address_public/index',
+      events: {
+          acceptAddressSelect(data){
+            that.setData({
+              addressId:data.id,
+              addressName:data.name,
+              fAddressName:data.fname
+            })
+          }
+      } ,
       success: function(res) {
         
       }
@@ -28,12 +91,10 @@ Page({
     let dataset = event.currentTarget.dataset;
     let value = event.detail.value
     let name = dataset.name;
-    console.log(name)
     _this.data[name] = value;
     _this.setData({
       [name]: _this.data[name]
     })
-    console.log(_this.data[name])
   },
   /**
    * 生命周期函数--监听页面加载
