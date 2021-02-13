@@ -1,5 +1,5 @@
 // pages/goods_detail/index.js
-import { goodsDetail ,saveToBag} from '../../api/goods.js';
+import { goodsDetail ,saveToBag} from '../../../api/goods.js';
 Page({
 
   /**
@@ -44,7 +44,7 @@ Page({
     let id = e.currentTarget.dataset.id;
     console.log(id)
     wx.navigateTo({
-      url: '/pages/order_confirm/index',
+      url: '/pages/order/order_confirm/index',
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', [{id:id,count:1}])

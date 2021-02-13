@@ -26,8 +26,9 @@ Page({
     var id = e.currentTarget.dataset.id;
     var name = e.currentTarget.dataset.name;
     var fname = e.currentTarget.dataset.fname;
+    var fid = e.currentTarget.dataset.fid;
     const eventChannel = this.getOpenerEventChannel()
-    eventChannel.emit('acceptAddressSelect', {id: id,name:name,fname:fname});
+    eventChannel.emit('acceptAddressSelect', {id: id,name:name,fname:fname,fid:fid});
     wx.navigateBack({
       delta: 1
     })

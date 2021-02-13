@@ -9,6 +9,8 @@ Page({
     addressId:null,
     strVillager:"",
     strCountry:"",
+    country:null,
+    villager:null,
     detail:null,
     name:null,
     phone:null,
@@ -55,7 +57,6 @@ Page({
       })
       return
     }
-    let that=this
     wx.showLoading({
       title: '加载中',
     })
@@ -77,7 +78,9 @@ Page({
             that.setData({
               addressId:data.id,
               strVillager:data.name,
-              strCountry:data.fname
+              strCountry:data.fname,
+              country:data.fid,
+              villager:data.id
             })
           }
       } ,

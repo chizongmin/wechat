@@ -1,15 +1,16 @@
 {
   "pages": [
-    "pages/goods_cate/index",
+    "pages/goods/goods_cate/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/shopping_bag/index",
-    "pages/goods_detail/index",
-    "pages/order_confirm/index",
+    "pages/user/shopping_bag/index",
+    "pages/goods/goods_detail/index",
+    "pages/order/order_confirm/index",
     "pages/address/address_list/index",
     "pages/address/address_save/index",
     "pages/address/address_update/index",
-    "pages/address/address_public/index"
+    "pages/address/address_public/index",
+    "pages/order/paySuccess/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,13 +21,13 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/goods_cate/index",
+        "pagePath": "pages/goods/goods_cate/index",
         "iconPath": "pages/image/goods.png",
         "selectedIconPath": "pages/image/goods-click.png",
         "text": "商品"
       },
       {
-        "pagePath": "pages/shopping_bag/index",
+        "pagePath": "pages/user/shopping_bag/index",
         "iconPath": "pages/image/shopping-bag.png",
         "selectedIconPath": "pages/image/shopping-bag-click.png",
         "text": "购物袋"

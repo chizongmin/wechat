@@ -2,7 +2,7 @@
   <view class="body">
     <view class="address"  bindtap="addressSelect">
       <view class="title">
-        <text>小区地址</text>
+        <text>地址</text>
       </view>
       <view class="chooseVillager">
         <text>{{strCountry}} {{strVillager}}</text>

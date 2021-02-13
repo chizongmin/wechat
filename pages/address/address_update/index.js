@@ -90,7 +90,9 @@ Page({
             that.setData({
               addressId:data.id,
               strVillager:data.name,
-              strCountry:data.fname
+              strCountry:data.fname,
+              country:data.fid,
+              villager:data.id
             })
           }
       } ,

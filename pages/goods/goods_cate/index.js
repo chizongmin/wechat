@@ -1,5 +1,5 @@
 // pages/goods_cate/index.js
-import { tabList,tabMapGoods,saveToBag } from '../../api/goods.js';
+import { tabList,tabMapGoods,saveToBag } from '../../../api/goods.js';
 Page({
 
   /**
@@ -60,7 +60,7 @@ Page({
     let id = e.currentTarget.dataset.id;
     console.log(id)
     wx.navigateTo({
-      url: '/pages/goods_detail/index',
+      url: '/pages/goods/goods_detail/index',
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', { id: id })
