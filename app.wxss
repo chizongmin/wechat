@@ -9,4 +9,5 @@
   box-sizing: border-box;
 } 
 .middle{display:flex;align-items:center;justify-content:center;}
+.left {display:flex;align-items:center; }
 view{box-sizing:border-box;}

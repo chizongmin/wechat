@@ -1,0 +1,20 @@
+page{width: 100%;height: 100%;}
+.title{font-size: 29rpx;color:#777;}
+.number{font-size: 37rpx;font-weight: bold;padding-top: 10rpx;}
+.pic{font-size: 37rpx;font-weight: bold;padding-top: 10rpx;}
+.icon{width: 65rpx;height: 60rpx;}
+.header{height: 15%;width:100%;background-color: #fc7c07;display: flex;align-items: center;}
+.header .imageView{height: 90%;width:25%;}
+.header .imageView .image{height: 120rpx;width:120rpx;border-radius: 50%;background-color: white}
+.header .userInfo{height: 90%;width:75%;}
+.header .userInfo .hello{color:white;font-size: 35rpx;font-weight: bold;}
+.body{background-color: #f7f7f7;width:100%;height:85%;display:flex;flex-direction: column;align-items: center;}
+.body .profit{background-color: white;height: 150rpx;width: 700rpx;border-radius:20rpx;border:solid 1rpx white;margin-top: 20rpx;display: flex;align-items: center;justify-content: space-around;}
+.body .profit .title{padding-top: 10rpx;}
+.body .profit .score{display: flex;align-items: center;justify-content: center;flex-direction: column;}
+.body .profit .coupon{display: flex;align-items: center;justify-content: center;flex-direction: column;}
+.body .picTitle{display: flex;align-items: center;justify-content: center;flex-direction: column;width:200rpx}
+.body .order{background-color: white;height: 250rpx;width: 700rpx;border-radius:20rpx;border:solid 1rpx white;margin-top: 20rpx;display: flex;align-items: center;justify-content: space-around;flex-direction: column;}
+.body .viewTitle{width: 100%;height: 30%;padding: 20rpx 0 0 30rpx;font-size: 35rpx;font-weight: bold;}
+.body .viewBody{width: 100%;height: 70%;display: flex;justify-content: space-around;align-items: center;margin-bottom:40rpx;}
+.body .service{background-color: white;height: auto;width: 700rpx;border-radius:20rpx;border:solid 1rpx white;margin-top: 20rpx;display: flex;align-content: center;flex-direction: column;}

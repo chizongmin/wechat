@@ -1,0 +1,127 @@
+<view class="container">
+  <view class="header">
+    <view class="imageView middle">
+      <image class="image" src="/image/profile.png"></image>
+    </view>
+    <view class="userInfo left">
+      <view class="hello">
+          <text>Hello</text>
+      </view>
+    </view>
+  </view>
+  <view class="body">
+    <view class="profit">
+      <view class="score">
+        <veiw class="number">
+            <text>32132</text>
+        </veiw>
+        <view class="title">
+          <text>积分</text>
+        </view>
+      </view>
+      <view class="coupon">
+        <veiw class="number">
+            <text>0</text>
+        </veiw>
+        <view class="title">
+          <text>优惠券</text>
+        </view>
+      </view>
+    </view>
+    <view class="order">
+      <view class="viewTitle">
+          <text>订单</text>
+      </view>
+      <view class="viewBody">
+        <view class="picTitle">
+          <veiw class="pic">
+            <image class="icon" src="/image/peisong.png"/>
+          </veiw>
+          <view class="title">
+            <text>待配送</text>
+          </view>
+        </view>
+        <view class="picTitle">
+          <veiw class="pic">
+            <image class="icon" src="/image/waitConfirm.png"/>
+          </veiw>
+          <view class="title">
+            <text>待确认</text>
+          </view>
+        </view>
+        <view class="picTitle">
+          <veiw class="pic">
+            <image class="icon" src="/image/order.png"/>
+          </veiw>
+          <view class="title">
+            <text>全部</text>
+          </view>
+        </view>                
+      </view>
+    </view>
+    <view class="service">
+      <view class="viewTitle">
+          <text>服务</text>
+      </view>
+      <view class="viewBody" wx:if="{{false}}">
+        <view class="picTitle">
+          <veiw class="pic">
+            <image class="icon" src="/image/address.png"/>
+          </veiw>
+          <view class="title">
+            <text>收货地址</text>
+          </view>
+        </view>   
+        <view class="picTitle"></view>      
+        <view class="picTitle"></view>   
+      </view>
+      <block wx:else>
+        <view class="viewBody">
+          <view class="picTitle">
+            <veiw class="pic">
+              <image class="icon" src="/image/address.png"/>
+            </veiw>
+            <view class="title">
+              <text>收货地址</text>
+            </view>
+          </view>        
+          <view class="picTitle">
+            <veiw class="pic">
+              <image class="icon" src="/image/back.png"/>
+            </veiw>
+            <view class="title">
+              <text>待退货</text>
+            </view>
+          </view>
+          <view class="picTitle">
+            <veiw class="pic">
+              <image class="icon" src="/image/peisong2.png"/>
+            </veiw>
+            <view class="title">
+              <text>待配送</text>
+            </view>
+          </view>
+        </view>
+        <view class="viewBody">      
+          <view class="picTitle">
+            <veiw class="pic">
+              <image class="icon" src="/image/complete.png"/>
+            </veiw>
+            <view class="title">
+              <text>完成</text>
+            </view>
+          </view>  
+          <view class="picTitle">
+            <veiw class="pic">
+              <image class="icon" src="/image/sao.png"/>
+            </veiw>
+            <view class="title">
+              <text>扫一扫</text>
+            </view>
+          </view>   
+          <view class="picTitle"></view>             
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
