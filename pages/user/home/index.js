@@ -1,18 +1,55 @@
-// pages/user/home/index.js
+import { userInfo,updateInfo} from '../../../api/user.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    user:{}
   },
-
+  getUserInfo(e){
+    let userInfo=e.detail.userInfo
+    var infoIndex = "user.info";
+    if(userInfo){
+      this.setData({
+        [infoIndex]:userInfo
+      })
+      //调用接口保存
+      updateInfo(userInfo)
+    }
+  },
+  clickAddress(){
+    wx.navigateTo({
+      url: '/pages/address/address_list/index',   
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {from:'userHome'})
+      }  
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that=this
+    userInfo().then(res=>{
+      that.setData({
+        user:res.data
+      })
+    })
+    wx.getUserInfo({
+      success: res => {
+        let userInfo=res.userInfo
+        var infoIndex = "user.info";
+        if(userInfo){
+          this.setData({
+            [infoIndex]:userInfo
+          })
+          //调用接口保存
+          updateInfo(userInfo)
+        }
+      }
+    })
   },
 
   /**

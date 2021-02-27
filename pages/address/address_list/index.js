@@ -6,9 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-      list:[]
+      list:[],
+      from:null
   },
   chooseAddress(e){
+    let from =this.data.from
+    if(from=='userHome'){
+        return
+    }
     let that=this
     let item = e.currentTarget.dataset.item;
     const eventChannel = that.getOpenerEventChannel()
@@ -95,7 +100,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let eventChannel = this.getOpenerEventChannel()
     let that=this
+    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      that.setData({
+        from:data.from
+      })
+    })
     addressList().then(res=>{
         that.setData({
           list:res.data

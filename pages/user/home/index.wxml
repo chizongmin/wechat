@@ -1,11 +1,15 @@
 <view class="container">
   <view class="header">
-    <view class="imageView middle">
-      <image class="image" src="/image/profile.png"></image>
+    <view class="imageView middle" >
+      <!-- <image class="image" src="/image/profile.png"></image> -->
+      <image class="image" src="{{user.info.avatarUrl?user.info.avatarUrl:'/image/profile.png'}}"></image>
     </view>
     <view class="userInfo left">
-      <view class="hello">
-          <text>Hello</text>
+      <view class="hello" wx:if="{{user.info.nickName}}">
+          <text>Hello，{{user.info.nickName}}</text>
+      </view>
+      <view class="hello" wx:else>
+          <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" size="mini" style="font-size:33rpx;color:white;background-color: #fc7c07;"> 授权获取头像昵称 </button>
       </view>
     </view>
   </view>
@@ -13,7 +17,7 @@
     <view class="profit">
       <view class="score">
         <veiw class="number">
-            <text>32132</text>
+            <text>{{user.score}}</text>
         </veiw>
         <view class="title">
           <text>积分</text>
@@ -21,7 +25,7 @@
       </view>
       <view class="coupon">
         <veiw class="number">
-            <text>0</text>
+            <text>{{user.score}}</text>
         </veiw>
         <view class="title">
           <text>优惠券</text>
@@ -64,7 +68,7 @@
           <text>服务</text>
       </view>
       <view class="viewBody" wx:if="{{false}}">
-        <view class="picTitle">
+        <view class="picTitle" bindtap="clickAddress">
           <veiw class="pic">
             <image class="icon" src="/image/address.png"/>
           </veiw>
@@ -77,7 +81,7 @@
       </view>
       <block wx:else>
         <view class="viewBody">
-          <view class="picTitle">
+          <view class="picTitle" bindtap="clickAddress">
             <veiw class="pic">
               <image class="icon" src="/image/address.png"/>
             </veiw>
