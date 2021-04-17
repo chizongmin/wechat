@@ -1,0 +1,27 @@
+page{width: 100%;height: 100%;}
+.header{width:100%;height: 6%}
+.header .block{display:flex;justify-content: space-around;height: 90%}
+.header .block .tabBlock{width:120rpx;color: #777;}
+.header .block .tabBlock.active{font-weight: bold;border-bottom:7rpx solid #fc7c07;color: #fc7c07 ;}
+.header .tabBlock .tabText{font-size: 33rpx;}
+.body{width:100%;height:94%;background-color:#f7f7f7;}
+.body .scroll{width:100%;height:100%}
+.body .scroll .orderBlock{width: 94%;background-color: white;border-radius:20rpx;border:solid 1rpx white;
+  margin-top: 20rpx;
+}
+.body .scroll .orderBlock .blockTop{height: 80rpx;display: flex;align-items: center;justify-content: space-between;font-size: 30rpx;
+  font-weight: bold;color:#666}
+.body .scroll .orderBlock .blockTop .topLeft{width: 30%;}
+.body .scroll .orderBlock .blockTop .topRight{width: 20%;}
+.body .scroll .orderBlock .blockBody .goods{display: flex;align-items: center;color:#777;font-size: 35rpx;}
+.body .scroll .orderBlock .blockBody .goods .goodsPic{width: 160rpx;}
+.body .scroll .orderBlock .blockBody .goods .goodsName{width: 490rpx;display: flex;align-items: center;justify-content: flex-start;}
+.body .scroll .orderBlock .blockBody .goods .goodsNumber{width: 120rpx;}
+.pic {height: 130rpx;width: 130rpx;}
+.body .scroll .orderBlock .orderTip{height: 60rpx;width:100%;font-size: 34rpx;color:#777;}
+.body .scroll .orderBlock .orderTip .tip{width:90%;display: flex;justify-content: flex-end;}
+.body .scroll .orderBlock .orderTip .tip .tipTitle{display: flex;}
+.body .scroll .orderBlock .orderTip .tip .money{font-weight: bold;font-size: 36rpx;color:#555;}
+.body .scroll .orderBlock .blockBottom{height: 90rpx;display: flex;align-items: center;justify-content: flex-end;}
+.body .scroll .orderBlock .blockBottom .button { width:160rpx;height: 60rpx;background-color: white;
+  border-radius: 50rpx;font-weight: normal; border:solid #999 1rpx;font-size: 30rpx;margin-right: 25rpx;color: #444;}

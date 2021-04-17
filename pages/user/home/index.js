@@ -26,6 +26,16 @@ Page({
       }  
     })
   },
+  clickOrder(e){
+    var type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '/pages/user/home_order_list/index',   
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {from:'user',type:type})
+      }  
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

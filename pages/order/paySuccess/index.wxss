@@ -1,0 +1,14 @@
+page{width: 100%;height: 100%;}
+.image{width:200rpx;height:200rpx}
+.header{width:100%;height: 30%;}
+.title{color:#999;font-size: 35rpx;width: 25%;}
+.content{color:#777;font-size: 35rpx;width: 75%;}
+.body{width: 100%;height: 25%;padding-left: 50rpx;padding-right: 20rpx;}
+.body .namePhone{width: 100%;height: 30%;display:flex;align-items: center;}
+.body .address{width: 100%;height: 30%;display:flex;align-items: center;}
+.body .tip{width: 100%;height: 40%;display:flex;align-items: center;}
+.body .tip .title{font-size: 35rpx;}
+.body .tip .content{color:#999;font-size: 30rpx;}
+.bottom{width: 100%;height: 20%;}
+.bottom .button { border-radius: 50rpx;background: #fc7c07;color: white;font-weight: normal; border:solid 1rpx;}
+.space{width: 100%;height: 25%;}

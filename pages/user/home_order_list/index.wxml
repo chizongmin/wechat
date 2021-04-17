@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="header">
+    <view class="block">
+      <block  wx:for="{{tab}}" wx:for-item="item" wx:key='index'>
+        <view class='tabBlock middle  {{item.id==tabActive?"active":""}}' bindtap="tabActive" data-id="{{item.id}}">
+          <text class="tabText">{{item.name}}</text>
+        </view>
+      </block>
+    </view>   
+  </view>
+  <view class="body">
+    <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+      <view class="middle">
+        <block wx:for="{{orderList}}" wx:for-item="item" wx:key='index'>
+          <view class="orderBlock">
+              <view class="blockTop">
+                  <view class="topLeft middle">
+                      <text>2021-04-17</text>
+                  </view>
+                  <view class="topRight middle">
+                     <text>已完成</text>
+                  </view>
+              </view>
+              <view class="blockBody">
+                <view class="goods">
+                  <view class="goodsPic middle">
+                    <image class="pic" src='/pages/image/goods.png'></image> 
+                  </view>               
+                  <view class="goodsName">
+                    <text>系擦海购苹果系擦海购苹果系擦海购苹果系擦海购苹果</text>
+                  </view>  
+                  <view class="goodsNumber middle">
+                      <text>x 2</text>
+                  </view> 
+                </view>
+                <view class="goods">
+                  <view class="goodsPic middle">
+                    <image class="pic" src='/pages/image/goods.png'></image> 
+                  </view>               
+                  <view class="goodsName">
+                    <text>系擦海购苹果系擦海购苹果系擦海购苹果系擦海购苹果</text>
+                  </view>  
+                  <view class="goodsNumber middle">
+                      <text>x 2</text>
+                  </view> 
+                </view>
+              </view>
+              <view class="orderTip middle">
+                  <view class="tip">
+                    <view class="tipTitle">
+                        <text>共2件 应付总额: 
+                        </text> 
+                        <text class="money">￥105.2
+                        </text> 
+                    </view>
+                  </view>
+              </view>
+              <view class="blockBottom">
+                  <view class="button middle">
+                     订单条码
+                  </view>
+                  <view class="button middle">
+                     订单条码
+                  </view>
+                  <view class="button middle">
+                     订单条码
+                  </view>
+              </view>
+          </view>
+      </block>
+      </view>
+    </scroll-view>
+  </view>
+</view>

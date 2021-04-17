@@ -11,7 +11,9 @@
     "pages/address/address_update/index",
     "pages/address/address_public/index",
     "pages/order/paySuccess/index",
-    "pages/user/home/index"
+    "pages/user/home/index",
+    "pages/order/order_list/index",
+    "pages/user/home_order_list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
