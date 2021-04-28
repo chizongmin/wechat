@@ -37,30 +37,30 @@
           <text>订单</text>
       </view>
       <view class="viewBody">
-        <view class="picTitle"  bindtap="clickOrder"  data-type='user_wait_send'>
+        <view class="picTitle"  bindtap="clickOrder"  data-type='WAIT_PAY'>
+          <veiw class="pic">
+            <image class="icon" src="/image/payment.png"/>
+          </veiw>
+          <view class="title">
+            <text>待支付</text>
+          </view>
+        </view>
+        <view class="picTitle" bindtap="clickOrder" data-type='DONG,DELIVERY'>
           <veiw class="pic">
             <image class="icon" src="/image/peisong.png"/>
           </veiw>
           <view class="title">
-            <text>待配送</text>
+            <text>待收货</text>
           </view>
         </view>
-        <view class="picTitle"bindtap="clickOrder('user_wait_confirm')">
-          <veiw class="pic">
-            <image class="icon" src="/image/waitConfirm.png"/>
-          </veiw>
-          <view class="title">
-            <text>待确认</text>
-          </view>
-        </view>
-        <view class="picTitle"bindtap="clickOrder('user_wait_all')">
+        <view class="picTitle" bindtap="clickOrder" data-type=''>
           <veiw class="pic">
             <image class="icon" src="/image/order.png"/>
           </veiw>
           <view class="title">
             <text>全部</text>
           </view>
-        </view>                
+        </view>
       </view>
     </view>
     <view class="service">
@@ -75,9 +75,9 @@
           <view class="title">
             <text>收货地址</text>
           </view>
-        </view>   
-        <view class="picTitle"></view>      
-        <view class="picTitle"></view>   
+        </view>
+        <view class="picTitle"></view>
+        <view class="picTitle"></view>
       </view>
       <block wx:else>
         <view class="viewBody">
@@ -88,7 +88,7 @@
             <view class="title">
               <text>收货地址</text>
             </view>
-          </view>        
+          </view>
           <view class="picTitle">
             <veiw class="pic">
               <image class="icon" src="/image/back.png"/>
@@ -106,7 +106,7 @@
             </view>
           </view>
         </view>
-        <view class="viewBody">      
+        <view class="viewBody">
           <view class="picTitle">
             <veiw class="pic">
               <image class="icon" src="/image/complete.png"/>
@@ -114,7 +114,7 @@
             <view class="title">
               <text>完成</text>
             </view>
-          </view>  
+          </view>
           <view class="picTitle">
             <veiw class="pic">
               <image class="icon" src="/image/sao.png"/>
@@ -122,8 +122,8 @@
             <view class="title">
               <text>扫一扫</text>
             </view>
-          </view>   
-          <view class="picTitle"></view>             
+          </view>
+          <view class="picTitle"></view>
         </view>
       </block>
     </view>

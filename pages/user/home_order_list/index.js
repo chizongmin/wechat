@@ -1,4 +1,5 @@
 // pages/user/home_order_list/index.js
+import { userOrderList } from '../../../api/goods.js';
 Page({
 
   /**
@@ -8,13 +9,31 @@ Page({
       from:null,
       tabActive: null,
       tab:[],
-      orderList:[{}]
+      orderList:[],
+      params:{
+        status:"",
+        pageSize:10,
+        pageNumber:1
+      }
   },
   tabActive(e){
     var id = e.currentTarget.dataset.id;
     this.setData({
-      tabActive: id
+      tabActive: id,
+      'params.status':id,
+      'params.pageSize':10,
+      'params.pageNumber':1
     });
+    this.orderList()
+  },
+  orderList(){
+    let that=this
+    let params=this.data.params
+    userOrderList(params).then(res=>{
+      that.setData({
+        orderList:res.data
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -26,18 +45,20 @@ Page({
       let tab=[]
       if(data.from=="user"){
           tab=[
-            {id:"user_all",name:"全部"},
-            {id:"user_wait_send",name:"待配送"},
-            {id:"user_wait_confirm",name:"待确认"}, 
-            {id:"user_wait_deal",name:"待处理"},
-            {id:"user_complete",name:"已完成"}
+            {id:"WAIT_PAY",name:"待支付"},
+            {id:"DONG",name:"处理中"},
+            {id:"DELIVERY",name:"配送中"},
+            {id:"WAIT_CONFIRM",name:"待确认"},
+            {id:"",name:"全部"}
           ]
       }
       that.setData({
         from:data.from,
         tab:tab,
-        tabActive:data.type
+        tabActive:data.type,
+        'params.status':data.type
       })
+      this.orderList()
       console.log(that.data)
     })
   },

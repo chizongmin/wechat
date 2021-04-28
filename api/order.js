@@ -5,3 +5,6 @@ export function orderCreated(data) {
 export function findById(data) {
   return request.get('wxOrder/findById',data);
 }
+export function userOrderList(data) {
+  return request.get('wxOrder/userOrderList',data);
+}
