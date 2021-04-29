@@ -8,3 +8,7 @@ export function findById(data) {
 export function userOrderList(data) {
   return request.get('wxOrder/userOrderList',data);
 }
+export function updateStatus(data) {
+  return request.get('wxOrder/updateStatus',data);
+}
+

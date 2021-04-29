@@ -1,23 +1,24 @@
 // pages/user/home_order_list/index.js
-import { userOrderList } from '../../../api/goods.js';
+import { userOrderList,updateStatus } from '../../../api/order.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      from:null,
       tabActive: null,
       tab:[],
       orderList:[],
+      totalCount:0,
       params:{
+        from:null,
         status:"",
         pageSize:10,
         pageNumber:1
       }
   },
   tabActive(e){
-    var id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.dataset.id;
     this.setData({
       tabActive: id,
       'params.status':id,
@@ -31,7 +32,8 @@ Page({
     let params=this.data.params
     userOrderList(params).then(res=>{
       that.setData({
-        orderList:res.data
+        orderList:res.data.items,
+        totalCount:res.data.totalCount
       })
     })
   },
@@ -51,12 +53,19 @@ Page({
             {id:"WAIT_CONFIRM",name:"待确认"},
             {id:"",name:"全部"}
           ]
+      }else{
+        tab=[
+          {id:"DELIVERY",name:"待配送"},
+          {id:"RETURN_DOING",name:"待退货"},
+          {id:"COMPLETED,WAIT_CONFIRM,RETURNED",name:"已完成"},
+          {id:"DELIVERY,RETURN_DOING,COMPLETED,WAIT_CONFIRM,RETURNED",name:"全部"}
+        ]
       }
       that.setData({
-        from:data.from,
         tab:tab,
         tabActive:data.type,
-        'params.status':data.type
+        'params.status':data.type,
+        'params.from':data.from
       })
       this.orderList()
       console.log(that.data)
