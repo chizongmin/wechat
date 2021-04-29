@@ -15,42 +15,33 @@
           <view class="orderBlock">
               <view class="blockTop">
                   <view class="topLeft middle">
-                      <text>2021-04-17</text>
+                      <text>{{item.createdDate}}</text>
                   </view>
                   <view class="topRight middle">
-                     <text>已完成</text>
+                     <text>{{item.strStatus}}</text>
                   </view>
               </view>
               <view class="blockBody">
-                <view class="goods">
-                  <view class="goodsPic middle">
-                    <image class="pic" src='/pages/image/goods.png'></image> 
-                  </view>               
-                  <view class="goodsName">
-                    <text>系擦海购苹果系擦海购苹果系擦海购苹果系擦海购苹果</text>
-                  </view>  
-                  <view class="goodsNumber middle">
-                      <text>x 2</text>
-                  </view> 
-                </view>
-                <view class="goods">
-                  <view class="goodsPic middle">
-                    <image class="pic" src='/pages/image/goods.png'></image> 
-                  </view>               
-                  <view class="goodsName">
-                    <text>系擦海购苹果系擦海购苹果系擦海购苹果系擦海购苹果</text>
-                  </view>  
-                  <view class="goodsNumber middle">
-                      <text>x 2</text>
-                  </view> 
-                </view>
+                <block wx:for="{{item.goods}}" wx:for-item="item_item" wx:key='index_index'>
+                  <view class="goods">
+                    <view class="goodsPic middle">
+                      <image class="pic" src='{{item_item.indexImage}}'></image> 
+                    </view>               
+                    <view class="goodsName">
+                      <text>{{item_item.name}}</text>
+                    </view>  
+                    <view class="goodsNumber middle">
+                        <text>x {{item_item.buyCount}}</text>
+                    </view> 
+                  </view>
+                </block>              
               </view>
               <view class="orderTip middle">
                   <view class="tip">
                     <view class="tipTitle">
-                        <text>共2件 应付总额: 
+                        <text>共{{item.totalGoodsCount}}件 应付总额: 
                         </text> 
-                        <text class="money">￥105.2
+                        <text class="money">￥{{item.realSum}}
                         </text> 
                     </view>
                   </view>

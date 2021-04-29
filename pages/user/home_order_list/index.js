@@ -67,7 +67,7 @@ Page({
         'params.status':data.type,
         'params.from':data.from
       })
-      this.orderList()
+      that.orderList()
       console.log(that.data)
     })
   },

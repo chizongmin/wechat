@@ -5,7 +5,8 @@ page{width: 100%;height: 100%;}
 .header .block .tabBlock.active{font-weight: bold;border-bottom:7rpx solid #fc7c07;color: #fc7c07 ;}
 .header .tabBlock .tabText{font-size: 33rpx;}
 .body{width:100%;height:94%;background-color:#f7f7f7;}
-.body .scroll{width:100%;height:100%}
+.body .scroll{width:100%;height:100%;}
+.body .scroll .middle{display: flex;flex-direction: column;}
 .body .scroll .orderBlock{width: 94%;background-color: white;border-radius:20rpx;border:solid 1rpx white;
   margin-top: 20rpx;
 }
