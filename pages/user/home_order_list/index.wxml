@@ -6,7 +6,7 @@
           <text class="tabText">{{item.name}}</text>
         </view>
       </block>
-    </view>   
+    </view>
   </view>
   <view class="body">
     <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
@@ -25,40 +25,39 @@
                 <block wx:for="{{item.goods}}" wx:for-item="item_item" wx:key='index_index'>
                   <view class="goods">
                     <view class="goodsPic middle">
-                      <image class="pic" src='{{item_item.indexImage}}'></image> 
-                    </view>               
+                      <image class="pic" src='{{item_item.indexImage}}'></image>
+                    </view>
                     <view class="goodsName">
                       <text>{{item_item.name}}</text>
-                    </view>  
+                    </view>
                     <view class="goodsNumber middle">
                         <text>x {{item_item.buyCount}}</text>
-                    </view> 
+                    </view>
                   </view>
-                </block>              
+                </block>
               </view>
               <view class="orderTip middle">
                   <view class="tip">
                     <view class="tipTitle">
-                        <text>共{{item.totalGoodsCount}}件 应付总额: 
-                        </text> 
+                        <text>共{{item.totalGoodsCount}}件 应付总额:
+                        </text>
                         <text class="money">￥{{item.realSum}}
-                        </text> 
+                        </text>
                     </view>
                   </view>
               </view>
               <view class="blockBottom">
-                  <view class="button middle">
+                  <view class="button middle"  bindtap="orderImager" data-id="{{item.code}}">
                      订单条码
                   </view>
-                  <view class="button middle">
-                     订单条码
-                  </view>
-                  <view class="button middle">
-                     订单条码
-                  </view>
+                  <block wx:for="{{params.from=='user'?item.userShowChangeButton[item.status]:item.managerShowChangeButton[item.status]}}" wx:for-item="item_button" wx:key='index_button'>
+                      <view class="button middle" bindtap="changeOrderStatus" data-toStatus="{{item_button.id}}" data-id="{{item.id}}">
+                          {{item_button.name}}
+                      </view>
+                  </block>
               </view>
           </view>
-      </block>
+        </block>
       </view>
     </scroll-view>
   </view>

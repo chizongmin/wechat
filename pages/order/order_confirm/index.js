@@ -31,17 +31,25 @@ Page({
     }
     let postData={addressId:addressId,couponId:coupon.id,goods:confirmToService,remark:remark}
     wx.showLoading({
-      title: '提交中',
+      title: '处理中',
     })
     orderCreated(postData).then(res=>{
       wx.hideLoading()
-      wx.navigateTo({
-        url: '/pages/order/paySuccess/index',
-        success: function(response) {
-          // 通过eventChannel向被打开页面传送数据
-          response.eventChannel.emit('acceptDataFromOpenerPage', res.data)
-        }
-      })
+      if(res.code==200){
+        wx.navigateTo({
+          url: '/pages/order/paySuccess/index',
+          success: function(response) {
+            // 通过eventChannel向被打开页面传送数据
+            response.eventChannel.emit('acceptDataFromOpenerPage', res.data)
+          }
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
     })
   },
   computedPrice:function(){
@@ -90,7 +98,7 @@ Page({
         goods.forEach(item=>{
           let single=data.find(it=>it.id==item.id)
           item.confirmCount=single.count
-        }) 
+        })
         that.setData({
           confirmToService:data,
           confirmGoods:goods

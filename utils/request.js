@@ -15,13 +15,13 @@ export default function request(api, method, data )
       header: header,
       data: data || {},
       success: (res) => {
-        if (res.data.code == 200){
-          reslove(res.data, res)
+        if (res.data.code == 500){
+          reject(res.data.message || '系统错误')
         }
         else if (res.data.status == 406){
           reject(res.data.message || '参数错误')
         }else{
-          reject(res.data.message || '系统错误')
+          reslove(res.data, res)
         }
       }
     })

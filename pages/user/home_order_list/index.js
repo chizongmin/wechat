@@ -27,7 +27,7 @@ Page({
     });
     this.orderList()
   },
-  orderList(){
+  orderList(){ //订单列表
     let that=this
     let params=this.data.params
     userOrderList(params).then(res=>{
@@ -35,6 +35,27 @@ Page({
         orderList:res.data.items,
         totalCount:res.data.totalCount
       })
+    })
+  },
+  orderImager(e){ //订单二维码
+    let orderCode=e.currentTarget.dataset.id;
+    //获取图片，跳转
+  },
+  changeOrderStatus(e){
+    let orderId=e.currentTarget.dataset.id;
+    let toStatus=e.currentTarget.dataset.toStatus;
+    wx.showLoading({
+      title: '处理中',
+    })
+    updateStatus({orderId:orderId,toStatus:toStatus}).then(res=>{
+      wx.hideLoading()
+      if(res.code!=200){
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
     })
   },
   /**

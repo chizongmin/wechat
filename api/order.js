@@ -9,6 +9,6 @@ export function userOrderList(data) {
   return request.get('wxOrder/userOrderList',data);
 }
 export function updateStatus(data) {
-  return request.get('wxOrder/updateStatus',data);
+  return request.post('wxOrder/updateStatus',data);
 }
 
