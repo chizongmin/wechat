@@ -43,7 +43,7 @@ Page({
   },
   changeOrderStatus(e){
     let orderId=e.currentTarget.dataset.id;
-    let toStatus=e.currentTarget.dataset.toStatus;
+    let toStatus=e.currentTarget.dataset.code;
     wx.showLoading({
       title: '处理中',
     })
@@ -55,6 +55,8 @@ Page({
           icon: 'none',
           duration: 2000
         })
+      }else{
+        this.orderList()
       }
     })
   },
