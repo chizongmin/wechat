@@ -13,7 +13,9 @@
     "pages/order/paySuccess/index",
     "pages/user/home/index",
     "pages/order/order_list/index",
-    "pages/user/home_order_list/index"
+    "pages/user/home_order_list/index",
+    "pages/user/home_order_qr/index",
+    "pages/user/home_user_coupon/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

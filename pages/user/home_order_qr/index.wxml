@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="body">
+    <view class="address"  bindtap="addressSelect">
+      <view class="title">
+        <text>地址</text>
+      </view>
+      <view class="chooseVillager">
+        <text>{{strCountry}} {{strVillager}}</text>
+      </view>
+      <view class="middle">
+        <image src="/image/enter.png" class="enter"></image>
+      </view>
+    </view>
+    <view class="addressDetail">
+      <view class="title">
+        <text>门牌号</text>
+      </view>
+      <input  class="detailInput" placeholder-class="placeholder"  maxlength="50" placeholder="请输入楼号单元门牌号，如1号楼1单元101" bindinput='inputChange' data-name='detail' />
+    </view>
+    <view class="name">
+      <view class="title">
+        <text>姓名</text>
+      </view>
+      <input  placeholder-class="placeholder" class="input" maxlength="6" placeholder="请输入联系人姓名" bindinput='inputChange' data-name='name' />
+    </view>
+    <view class="phone">
+      <view class="title">
+        <text>电话</text>
+      </view>     
+      <input placeholder-class="placeholder" class="input" maxlength="11" placeholder="请输入联系人电话" bindinput='inputChange' data-name='phone' />
+     </view>
+     <view class="default">
+       <view class="defaultLeft">
+          <view class="title">
+              <text>设置位默认地址</text>
+          </view>  
+          <view class="tip">
+               <text>提醒：每次下单会默认推荐使用该地址</text>
+          </view> 
+       </view>
+       <view class="defaultRight middle">
+          <switch class="switch" color="#fc7c07" checked="{{default}}" bindchange="switchDefalut"/>
+       </view>
+     </view>
+    <view class="bottom middle" bindtap="save">
+      <button class="button" size="mini" style="width:500rpx;height:85rpx">
+        <text class="text" style="font-size:35rpx">保存</text>
+      </button>
+    </view>
+  </view>
+</view>

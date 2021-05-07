@@ -5,3 +5,6 @@ export function userInfo() {
 export function updateInfo(data) {
   return request.post('wxUser/updateInfo',data);
 }
+export function scoreActivity() {
+  return request.post('wxUser/scoreActivity', {});
+}

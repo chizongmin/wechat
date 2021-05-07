@@ -11,4 +11,10 @@ export function userOrderList(data) {
 export function updateStatus(data) {
   return request.post('wxOrder/updateStatus',data);
 }
+export function fetchQRCode(data) {
+  return request.get('wx/fetchQRCode',data);
+}
+export function orderActivity(data) {
+  return request.get('wxOrder/orderActivity',data);
+}
 

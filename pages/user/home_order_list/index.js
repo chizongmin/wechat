@@ -37,9 +37,17 @@ Page({
       })
     })
   },
-  orderImager(e){ //订单二维码
-    let orderCode=e.currentTarget.dataset.id;
+  orderImage(e){ //订单二维码
+    let orderId=e.currentTarget.dataset.id;
+    let orderCode=e.currentTarget.dataset.code;
     //获取图片，跳转
+    wx.navigateTo({
+      url: '/pages/user/home_order_qr/index',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {orderId:orderId,orderCode:orderCode})
+      }
+    })
   },
   changeOrderStatus(e){
     let orderId=e.currentTarget.dataset.id;

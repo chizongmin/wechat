@@ -47,7 +47,7 @@
                   </view>
               </view>
               <view class="blockBottom">
-                  <view class="button middle"  bindtap="orderImager" data-id="{{item.code}}">
+                  <view class="button middle"  bindtap="orderImage" data-id="{{item.id}}" data-code="{{item.code}}">
                      订单条码
                   </view>
                   <block wx:for="{{params.from=='user'?item.userShowChangeButton:item.managerShowChangeButton}}" wx:for-item="item_button" wx:key='index_button'>
