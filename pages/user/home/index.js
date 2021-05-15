@@ -28,11 +28,12 @@ Page({
   },
   clickOrder(e){
     var type = e.currentTarget.dataset.type;
+    var from = e.currentTarget.dataset.from;
     wx.navigateTo({
       url: '/pages/user/home_order_list/index',   
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', {from:'user',type:type})
+        res.eventChannel.emit('acceptDataFromOpenerPage', {from:from,type:type})
       }  
     })
   },

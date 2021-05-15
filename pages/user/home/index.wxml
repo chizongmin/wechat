@@ -37,7 +37,7 @@
           <text>订单</text>
       </view>
       <view class="viewBody">
-        <view class="picTitle"  bindtap="clickOrder"  data-type='WAIT_PAY'>
+        <view class="picTitle"  bindtap="clickOrder"  data-type='WAIT_PAY' data-from='user'>
           <veiw class="pic">
             <image class="icon" src="/image/payment.png"/>
           </veiw>
@@ -45,7 +45,7 @@
             <text>待支付</text>
           </view>
         </view>
-        <view class="picTitle" bindtap="clickOrder" data-type='DONG,DELIVERY'>
+        <view class="picTitle" bindtap="clickOrder" data-type='DONG,DELIVERY' data-from='user'>
           <veiw class="pic">
             <image class="icon" src="/image/peisong.png"/>
           </veiw>
@@ -53,7 +53,7 @@
             <text>待收货</text>
           </view>
         </view>
-        <view class="picTitle" bindtap="clickOrder" data-type=''>
+        <view class="picTitle" bindtap="clickOrder" data-type='' data-from='user'>
           <veiw class="pic">
             <image class="icon" src="/image/order.png"/>
           </veiw>
@@ -89,7 +89,7 @@
               <text>收货地址</text>
             </view>
           </view>
-          <view class="picTitle">
+          <view class="picTitle" bindtap="clickOrder" data-type='RETURN_DOING' data-from='villager'>
             <veiw class="pic">
               <image class="icon" src="/image/back.png"/>
             </veiw>
@@ -97,7 +97,7 @@
               <text>待退货</text>
             </view>
           </view>
-          <view class="picTitle">
+          <view class="picTitle" bindtap="clickOrder" data-type='DELIVERY' data-from='villager'>
             <veiw class="pic">
               <image class="icon" src="/image/peisong2.png"/>
             </veiw>
@@ -106,8 +106,8 @@
             </view>
           </view>
         </view>
-        <view class="viewBody">
-          <view class="picTitle">
+        <view class="viewBody" >
+          <view class="picTitle" bindtap="clickOrder" data-type='COMPLETED,WAIT_CONFIRM,RETURNED' data-from='villager'>
             <veiw class="pic">
               <image class="icon" src="/image/complete.png"/>
             </veiw>
