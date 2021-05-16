@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="top middle">
+    <view class="body middle">
+      <view class="left middle">
+        <view class="total">
+          <text>{{score}}</text>
+        </view>
+      </view>
+      <view class="right middle">
+          <view class="exchange">
+              <text>兑换优惠券</text>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom middle">
+    <scroll-view class="scroll middle" scroll-y="true" scroll-with-animation='true'>
+      <block wx:for="{{items}}" wx:for-item="item" wx:key='index'>
+       <view class="item middle">
+          <view class="left">
+              <view class="scoreType">
+                <text>{{item.strType}}</text>
+              </view>
+              <view class="scoreDate">
+                <text>{{item.dateCreated}}</text>
+              </view>
+          </view>
+          <view class="right">
+              <view class='score middle {{item.action=="plus"?"":"red"}}'>
+                  <text>{{item.action=="plus"?"+":"-"}}{{item.change}}</text>
+              </view>
+          </view>
+       </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

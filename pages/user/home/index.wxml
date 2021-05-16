@@ -15,7 +15,7 @@
   </view>
   <view class="body">
     <view class="profit">
-      <view class="score">
+      <view class="score"   bindtap="clickScore">
         <veiw class="number">
             <text>{{user.score}}</text>
         </veiw>

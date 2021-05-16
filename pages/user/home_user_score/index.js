@@ -1,18 +1,24 @@
-// pages/order/order_list/index.js
+// pages/user/home_user_score/index.js
+import { scoreActivity} from '../../../api/user.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      score:"",
+      items:null,
+      totalCount:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that=this
+    scoreActivity().then(res=>{
+      that.setData(res.data)
+    })
   },
 
   /**
