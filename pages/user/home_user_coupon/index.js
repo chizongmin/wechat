@@ -1,34 +1,44 @@
 // pages/address/address_save/index.js
-import { fetchQRCode } from '../../../api/order.js';
+import { userCoupon,systemCouponList } from '../../../api/coupon.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderId:null,
-    orderCode:null,
-    qr:null
+    from:null,
+    list:[]
   },
-
+  userCouponList(){ //订单列表
+    let that=this
+    userCoupon().then(res=>{
+      that.setData({
+        list:res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let eventChannel = this.getOpenerEventChannel()
     let that=this
-    const eventChannel = this.getOpenerEventChannel()
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      let orderId=data.orderId
-      let orderCode=data.orderCode
+      if(data.from=="user1"){
+        userCoupon().then(res=>{
+          that.setData({
+            list:res.data
+          })
+        })
+      }else{
+        systemCouponList().then(res=>{
+          that.setData({
+            list:res.data
+          })
+        })
+      }
       that.setData({
-        orderId:orderId,
-        orderCode:orderCode
-      })
-    })
-    //请求后台接口获取二维码
-    fetchQRCode({scene:that.data.orderId}).then(res=>{
-      that.setData({
-        qr:res.data
+        from:data.from
       })
     })
   },

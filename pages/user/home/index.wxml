@@ -23,7 +23,7 @@
           <text>积分</text>
         </view>
       </view>
-      <view class="coupon">
+      <view class="coupon" bindtap="clickCoupon">
         <veiw class="number">
             <text>{{user.score}}</text>
         </veiw>
