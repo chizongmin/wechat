@@ -12,7 +12,7 @@ Page({
   },
   exchangeCoupon(e){
     if(this.data.from=="user"){
-        return
+      return
     }
     var id = e.currentTarget.dataset.id;
     var score = e.currentTarget.dataset.score;
@@ -47,6 +47,7 @@ Page({
         }
       }
     })
+    list:[]
   },
   userCouponList(){ //订单列表
     let that=this
@@ -132,3 +133,4 @@ Page({
 
   }
 })
+
