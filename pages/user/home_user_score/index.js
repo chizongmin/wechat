@@ -10,7 +10,16 @@ Page({
       items:null,
       totalCount:null
   },
-
+  clickCoupon(){
+    let that=this
+    wx.navigateTo({
+      url: '/pages/user/home_user_coupon/index',   
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {from:"score",score:that.data.score})
+      }  
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

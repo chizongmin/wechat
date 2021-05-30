@@ -1,5 +1,5 @@
 // pages/address/address_save/index.js
-import { userCoupon,systemCouponList } from '../../../api/coupon.js';
+import { userCoupon,systemCouponList,exchangeCoupon } from '../../../api/coupon.js';
 Page({
 
   /**
@@ -7,7 +7,46 @@ Page({
    */
   data: {
     from:null,
-    list:[]
+    list:[],
+    userScore:''
+  },
+  exchangeCoupon(e){
+    if(this.data.from=="user"){
+        return
+    }
+    var id = e.currentTarget.dataset.id;
+    var score = e.currentTarget.dataset.score;
+    let that=this
+    if(that.data.userScore< score ){
+      wx.showToast({
+        title: '积分不足',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    wx.showModal({
+      title: '提示',
+      content: '是否使用'+score+'积分兑换优惠券',
+      success (res) {
+        if (res.confirm) {
+          //调用兑换接口
+          wx.showLoading({
+            title: '处理中',
+          })
+          exchangeCoupon({couponId:id}).then(res=>{
+            wx.hideLoading()
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 2000
+            })
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   userCouponList(){ //订单列表
     let that=this
@@ -24,7 +63,7 @@ Page({
     let eventChannel = this.getOpenerEventChannel()
     let that=this
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      if(data.from=="user1"){
+      if(data.from=="user"){
         userCoupon().then(res=>{
           that.setData({
             list:res.data
@@ -38,7 +77,8 @@ Page({
         })
       }
       that.setData({
-        from:data.from
+        from:data.from,
+        userScore:data.score
       })
     })
   },

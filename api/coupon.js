@@ -6,5 +6,5 @@ export function userCoupon() {
     return request.get('wxUserCoupon/userCoupon', {});
 }
 export function exchangeCoupon(data) {
-    return request.post('wxOrder/exchangeCoupon',data);
+    return request.post('wxUserCoupon/exchangeCoupon',data);
 }

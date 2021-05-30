@@ -1,7 +1,7 @@
 <view class="container">
     <scroll-view class="scroll middle" scroll-y="true" scroll-with-animation='true'>
       <block wx:for="{{list}}" wx:for-item="item" wx:key='index'>
-       <view class="item middle">
+       <view class="item middle" bindtap="exchangeCoupon" data-id="{{item.id}}" data-score="{{item.score}}">
           <view class="left">
               <view class="name">
                 <text>{{item.name}}</text>
@@ -22,11 +22,16 @@
                 <text>元</text>
               </view>
             </view>   
-            <view class="rightBottom">
+            <view class="rightBottom" wx:if="{{from!='user'}}">
               <view class="score">
                 <text>{{item.score}}积分</text>
               </view>
-            </view>        
+            </view>  
+            <view class="rightBottom" wx:else>
+              <view class="score">
+                <text>{{item.strStatus}}</text>
+              </view>
+            </view>                
           </view>
        </view>
       </block>

@@ -6,7 +6,7 @@
           <text>{{score}}</text>
         </view>
       </view>
-      <view class="right middle">
+      <view class="right middle" bindtap="clickCoupon">
           <view class="exchange">
               <text>兑换优惠券</text>
           </view>

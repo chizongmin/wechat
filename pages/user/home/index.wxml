@@ -25,7 +25,7 @@
       </view>
       <view class="coupon" bindtap="clickCoupon">
         <veiw class="number">
-            <text>{{user.score}}</text>
+            <text>{{user.couponCount}}</text>
         </veiw>
         <view class="title">
           <text>优惠券</text>

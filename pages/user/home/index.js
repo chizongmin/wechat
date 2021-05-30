@@ -1,4 +1,4 @@
-import { userInfo,updateInfo} from '../../../api/user.js';
+import { home,updateInfo} from '../../../api/user.js';
 Page({
   /**
    * 页面的初始数据
@@ -60,7 +60,7 @@ Page({
    */
   onLoad: function (options) {
     let that=this
-    userInfo().then(res=>{
+    home().then(res=>{
       that.setData({
         user:res.data
       })
