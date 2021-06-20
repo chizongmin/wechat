@@ -1,0 +1,153 @@
+<view class="container">
+  <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
+    <view class="body middle">
+      <view class="midd">
+        <view class="top middle">
+           <view >
+            <text>{{order.strStatus}}</text>
+          </view>
+        </view>
+        <view class="delivery">
+          <view class="title">
+            <text>配送至</text>
+          </view>
+          <view class="contact">
+            <text>{{order.strCountry}}{{order.strVillager}}{{order.address}}</text>
+          </view>
+          <view class="contact namePhone">
+            <text>{{order.name}}   {{order.phone}}</text>
+          </view>
+          <view class="splitLine"></view>
+          <view class="title">
+            <text>送达时间</text>
+          </view>
+          <view class="tip">
+            <text>您的订单最晚于明天送达</text>
+          </view>
+        </view>
+        <view class="split"></view>
+        <view class="pay">
+          <view class="coupon">
+              <view class="title">
+                  <text>优惠券</text>
+              </view>
+              <view class="couponMoney">
+                  <text class="middle">{{order.coupon.sum==null?'无':('￥'+order.coupon.sum)}}</text>
+              </view>
+          </view>
+          <view class="splitLine"></view>
+          <view class="priceShow">
+            <view class="title">
+                  <text>商品金额</text>
+              </view>
+              <view class="couponMoney">
+                  <text>￥{{order.realSum}}</text>
+              </view>
+          </view>
+          <view class="splitLine"></view>
+          <view class="split"></view>
+          <view class="goodsView">
+            <block wx:for="{{order.goods}}" wx:for-item="item" wx:key='index'>
+              <view class="goods">
+                <view class="picView">
+                  <image class="pic" src='{{item.indexImage}}'></image>                 
+                </view>
+                <view class="right">
+                  <view class="rightTop">
+                    <view class="title"> 
+                      <text> {{item.name}}</text>                 
+                      </view>
+                  </view>
+                  <view class="rightBottom">
+                    <view class="price">
+                        <view class="newPrice">
+                          <text class="symbol">￥</text>
+                          <text class="number">{{item.sum}}</text>
+                        </view>
+                    </view>
+                    <view class="changeNumber">
+                      <text>x {{item.buyCount}}</text>
+                    </view> 
+                  </view>
+                </view>
+            </view>
+           </block>
+          </view>
+        </view>
+        <view class="split"></view>
+        <view class="remark">
+          <text>备注:</text>
+          <text>{{order.remark}}</text>
+        </view>      
+        <view class="summary">
+          <view class="line">
+              <view class="title">
+                  <text>商品金额 ：</text>
+              </view>
+              <view class="value">
+                  <text>￥{{order.sum}}</text>
+              </view>
+          </view>
+          <view class="line">
+              <view class="title">
+                  <text>优惠金额 ：</text>
+              </view>
+              <view class="value">
+                  <text>￥{{order.coupon.sum==null?0:order.coupon.sum}}</text>
+              </view>
+          </view>
+          <view class="line">
+              <view class="title">
+                  <text>实际金额 ：</text>
+              </view>
+              <view class="value">
+                  <text>￥{{order.realSum}}</text>
+              </view>
+          </view>
+          <view class="line">
+              <view class="title">
+                  <text>下单时间 ：</text>
+              </view>
+              <view class="value">
+                  <text>{{order.createdDateDetail}}</text>
+              </view>
+          </view>
+          <view class="line">
+              <view class="title">
+                  <text>支付时间 ：</text>
+              </view>
+              <view class="value">
+                  <text>{{order.payTime}}</text>
+              </view>
+          </view>
+          <view class="line">
+              <view class="title">
+                  <text>订单编号 ：</text>
+              </view>
+              <view class="value">
+                  <text>{{order.code}}</text>
+              </view>
+          </view>
+        </view>    
+        <view class="blank">
+          <text></text>
+        </view> 
+      </view>
+    </view>
+  </scroll-view>
+  <view class="bottom middle">
+    <button  wx:if="{{order.status=='WAIT_PAY'}}"     class="button" size="mini" style="width:500rpx;height:85rpx" bindtap="wxPayCommit">
+        <text class="text" style="font-size:35rpx">微信支付￥{{order.realSum}}</text>
+    </button>
+    <view wx:else class="action">
+      <view class="buttons middle"  catchtap="orderImage" data-id="{{order.id}}" data-code="{{order.code}}">
+          订单条码
+      </view>
+      <block  wx:for="{{order.userShowChangeButton}}" wx:for-item="item_button" wx:key='index_button'>
+        <view class="buttons middle" catchtap="changeOrderStatus" data-code="{{item_button.id}}" data-id="{{order.id}}">
+            {{item_button.name}}
+        </view>
+       </block>
+    </view>
+  </view>
+</view>

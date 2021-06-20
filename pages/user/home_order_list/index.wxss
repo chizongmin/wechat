@@ -13,7 +13,7 @@ page{width: 100%;height: 100%;}
 .body .scroll .orderBlock .blockTop{height: 80rpx;display: flex;align-items: center;justify-content: space-between;font-size: 30rpx;
   font-weight: bold;color:#666}
 .body .scroll .orderBlock .blockTop .topLeft{width: 30%;}
-.body .scroll .orderBlock .blockTop .topRight{width: 20%;}
+.body .scroll .orderBlock .blockTop .topRight{width: 25%;}
 .body .scroll .orderBlock .blockBody .goods{display: flex;align-items: center;color:#777;font-size: 35rpx;}
 .body .scroll .orderBlock .blockBody .goods .goodsPic{width: 160rpx;}
 .body .scroll .orderBlock .blockBody .goods .goodsName{width: 490rpx;display: flex;align-items: center;justify-content: flex-start;padding-left: 20rpx;}

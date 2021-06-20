@@ -8,7 +8,20 @@ Page({
   data: {
     from:null,
     list:[],
-    userScore:''
+    userScore:'',
+    tab:[
+      {id:"ENABLE",name:"待使用"},
+      {id:"USED",name:"已使用"},
+      {id:"OUT_DATE",name:"已过期"}
+    ],
+    tabActive:"ENABLE"
+  },
+  tabActive(e){
+    let id = e.currentTarget.dataset.id; 
+    this.userCouponList({status:id})
+    this.setData({
+      tabActive:id
+    })
   },
   exchangeCoupon(e){
     if(this.data.from=="user"){
@@ -49,9 +62,9 @@ Page({
     })
     list:[]
   },
-  userCouponList(){ //订单列表
+  userCouponList(params){ //订单列表
     let that=this
-    userCoupon().then(res=>{
+    userCoupon(params).then(res=>{
       that.setData({
         list:res.data
       })
@@ -65,7 +78,7 @@ Page({
     let that=this
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
       if(data.from=="user"){
-        userCoupon().then(res=>{
+        userCoupon({status:"ENABLE"}).then(res=>{
           that.setData({
             list:res.data
           })

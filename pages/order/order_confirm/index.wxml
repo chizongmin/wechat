@@ -7,7 +7,7 @@
             <text>配送至</text>
           </view>
           <view class="contact">
-            <text>{{address.strCountry}}{{address.strVillager}}</text>
+            <text>{{address.strCountry}}{{address.strVillager}}{{address.detail}}</text>
             <image src="/image/enter.png" class="enter"></image>
           </view>
           <view class="contact namePhone">
@@ -74,7 +74,7 @@
         <view class="split"></view>
         <view class="remark">
           <text>备注</text>
-          <input class="weui-input placeholder" maxlength="50" placeholder="无" bindinput='inputChange' data-name='remark' />
+          <input class="weui-input placeholder" maxlength="50" placeholder="无" bindinput='inputChange' data-name='remark' style="width:550rpx"/>
         </view>      
         <view class="blank">
           <text></text>

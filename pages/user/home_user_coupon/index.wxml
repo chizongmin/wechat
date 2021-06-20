@@ -1,4 +1,13 @@
 <view class="container">
+  <view class="header"  wx:if="{{from=='user'}}">
+    <view class="block">
+      <block  wx:for="{{tab}}" wx:for-item="item" wx:key='index'>
+        <view class='tabBlock middle  {{item.id==tabActive?"active":""}}' bindtap="tabActive" data-id="{{item.id}}">
+          <text class="tabText">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
     <scroll-view class="scroll middle" scroll-y="true" scroll-with-animation='true'>
       <block wx:for="{{list}}" wx:for-item="item" wx:key='index'>
        <view class="item middle" bindtap="exchangeCoupon" data-id="{{item.id}}" data-score="{{item.score}}">

@@ -12,7 +12,7 @@
     <scroll-view class="scroll" scroll-y="true" scroll-with-animation='true'>
       <view class="middle">
         <block wx:for="{{orderList}}" wx:for-item="item" wx:key='index'>
-          <view class="orderBlock">
+          <view class="orderBlock" bindtap="orderDetail" data-id="{{item.id}}">
               <view class="blockTop">
                   <view class="topLeft middle">
                       <text>{{item.createdDate}}</text>
@@ -47,11 +47,11 @@
                   </view>
               </view>
               <view class="blockBottom">
-                  <view class="button middle"  bindtap="orderImage" data-id="{{item.id}}" data-code="{{item.code}}">
+                  <view class="button middle"  catchtap="orderImage" data-id="{{item.id}}" data-code="{{item.code}}">
                      订单条码
                   </view>
                   <block wx:for="{{params.from=='user'?item.userShowChangeButton:item.managerShowChangeButton}}" wx:for-item="item_button" wx:key='index_button'>
-                      <view class="button middle" bindtap="changeOrderStatus" data-code="{{item_button.id}}" data-id="{{item.id}}">
+                      <view class="button middle" catchtap="changeOrderStatus" data-code="{{item_button.id}}" data-id="{{item.id}}">
                           {{item_button.name}}
                       </view>
                   </block>

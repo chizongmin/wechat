@@ -16,7 +16,7 @@
           <text>收货地址</text>
         </view>
         <view class="content">
-          <text> {{strCountry}} {{strVillager}}</text>        
+          <text> {{strCountry}} {{strVillager}} {{address}}</text>        
         </view>
     </view>
     <view class="tip">

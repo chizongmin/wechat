@@ -15,7 +15,8 @@
     "pages/user/home_order_list/index",
     "pages/user/home_order_qr/index",
     "pages/user/home_user_coupon/index",
-    "pages/user/home_user_score/index"
+    "pages/user/home_user_score/index",
+    "pages/user/home_order_detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
