@@ -1,7 +1,7 @@
 // pages/order_confirm/index.js
 import { confirmGoods} from '../../../api/goods.js';
 import { defaultAddress} from '../../../api/address.js';
-import { orderCreated} from '../../../api/order.js';
+import { orderCreated,paySuccess} from '../../../api/order.js';
 Page({
 
   /**
@@ -11,6 +11,7 @@ Page({
     confirmToService:[],
     confirmGoods:[],//商品数量和id
     coupon:{},//优惠券
+    userCoupons:[],
     address:{}, //地址
     remark:"",
     goodsSum:null,
@@ -36,6 +37,8 @@ Page({
     orderCreated(postData).then(res=>{
       wx.hideLoading()
       if(res.code==200){
+        //暂时调用支付成功
+        paySuccess({orderId:res.data.id})
         wx.navigateTo({
           url: '/pages/order/paySuccess/index',
           success: function(response) {
@@ -59,12 +62,16 @@ Page({
     confirmGoods.forEach(item=>{
       goodsPrice+=item.confirmCount*item.sum
     })
-    if(this.data.coupon.money!=null){
-      couponPrice=this.data.coupon.money
+    if(this.data.coupon.sum!=null){
+      couponPrice=this.data.coupon.sum
+    }
+    let paySum=(goodsPrice-couponPrice).toFixed(2)
+    if(paySum<0){
+      paySum=0
     }
     this.setData({
       goodsSum:goodsPrice,
-      paySum:goodsPrice-couponPrice
+      paySum:paySum
     })
   },
   addressChoose:function(e){
@@ -84,6 +91,24 @@ Page({
       }
     })
   },
+  couponChoose:function(e){
+    let that=this
+    wx.navigateTo({
+      url: '/pages/user/home_user_coupon/index',
+      events:{
+           acceptChooseCoupon(coupon){
+            that.setData({
+              coupon:coupon
+            })
+            that.computedPrice()
+          }
+      },
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {from:"confirmOrder"})
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -94,14 +119,22 @@ Page({
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
       let ids=data.map(item=>item.id)
       confirmGoods({ids:ids}).then(res=>{
-        let goods=res.data
+        let goods=res.data.goods
+        let userCoupons=res.data.userCoupons
+        let coupon={}
+        if(userCoupons.length>0){
+          coupon=userCoupons[0]
+        }
+        console.log(coupon)
         goods.forEach(item=>{
           let single=data.find(it=>it.id==item.id)
           item.confirmCount=single.count
         })
         that.setData({
           confirmToService:data,
-          confirmGoods:goods
+          confirmGoods:goods,
+          userCoupons:userCoupons,
+          coupon:coupon
         })
         that.computedPrice()
       })

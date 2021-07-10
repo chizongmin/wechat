@@ -23,8 +23,18 @@ Page({
       tabActive:id
     })
   },
-  exchangeCoupon(e){
+  itemChoose(e){
     if(this.data.from=="user"){
+      return
+    }else if(this.data.from=="confirmOrder"){
+      this.chooseCoupon(e)
+    }
+    else{
+      this.exchangeCoupon(e)
+    }
+  },
+  exchangeCoupon(e){
+    if(this.data.from=="user"||this.data.from=="confirmOrder"){
       return
     }
     var id = e.currentTarget.dataset.id;
@@ -70,6 +80,19 @@ Page({
       })
     })
   },
+  chooseCoupon(e){
+    let from =this.data.from
+    if(from!='confirmOrder'){
+        return
+    }
+    let that=this
+    let item = e.currentTarget.dataset.item;
+    const eventChannel = that.getOpenerEventChannel()
+    eventChannel.emit('acceptChooseCoupon', item);
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -81,6 +104,15 @@ Page({
         userCoupon({status:"ENABLE"}).then(res=>{
           that.setData({
             list:res.data
+          })
+        })
+      }else if(data.from=="confirmOrder"){
+        userCoupon({status:"ENABLE"}).then(res=>{
+          that.setData({
+            list:res.data,
+            tab:[
+              {id:"ENABLE",name:"待使用"}
+            ]
           })
         })
       }else{

@@ -25,5 +25,5 @@ export function goodsDetail(data) {
   return request.get('wxGoods/findById',data);
 }
 export function confirmGoods(data) {
-  return request.post('wxGoods/findByIds',data);
+  return request.post('wxGoods/confirmGoods',data);
 }

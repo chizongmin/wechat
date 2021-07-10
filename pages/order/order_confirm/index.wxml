@@ -27,8 +27,8 @@
               <view class="title">
                   <text>优惠券</text>
               </view>
-              <view class="couponMoney">
-                  <text class="middle">{{coupon.money==null?'无':('￥'+coupon.money)}}</text>
+              <view class="couponMoney"  bindtap="couponChoose">
+                  <text class="middle">{{coupon.sum==null?'无':('-￥'+coupon.sum)}}</text>
                   <image src="/image/enter.png" class="enter"></image>
               </view>
           </view>

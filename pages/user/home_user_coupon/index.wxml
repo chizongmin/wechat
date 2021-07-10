@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="header"  wx:if="{{from=='user'}}">
+  <view class="header"  wx:if="{{from=='user'||from=='confirmOrder'}}">
     <view class="block">
       <block  wx:for="{{tab}}" wx:for-item="item" wx:key='index'>
         <view class='tabBlock middle  {{item.id==tabActive?"active":""}}' bindtap="tabActive" data-id="{{item.id}}">
@@ -10,7 +10,7 @@
   </view>
     <scroll-view class="scroll middle" scroll-y="true" scroll-with-animation='true'>
       <block wx:for="{{list}}" wx:for-item="item" wx:key='index'>
-       <view class="item middle" bindtap="exchangeCoupon" data-id="{{item.id}}" data-score="{{item.score}}">
+       <view class="item middle" bindtap="itemChoose" data-id="{{item.id}}" data-score="{{item.score}}" data-item="{{item}}">
           <view class="left">
               <view class="name">
                 <text>{{item.name}}</text>
@@ -31,7 +31,7 @@
                 <text>元</text>
               </view>
             </view>   
-            <view class="rightBottom" wx:if="{{from!='user'}}">
+            <view class="rightBottom" wx:if="{{from!='user'&&from!='confirmOrder'}}">
               <view class="score">
                 <text>{{item.score}}积分</text>
               </view>
