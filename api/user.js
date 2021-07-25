@@ -5,6 +5,6 @@ export function home() {
 export function updateInfo(data) {
   return request.post('wxUser/updateInfo',data);
 }
-export function scoreActivity() {
-  return request.post('wxUser/scoreActivity', {});
+export function scoreActivity(params) {
+  return request.get('wxUser/scoreActivity',params);
 }

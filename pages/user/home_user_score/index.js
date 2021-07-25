@@ -8,7 +8,9 @@ Page({
   data: {
       score:"",
       items:null,
-      totalCount:null
+      totalCount:null,
+      pageSize:8,
+      pageNumber:1
   },
   clickCoupon(){
     let that=this
@@ -20,12 +22,31 @@ Page({
       }  
     })
   },
+  loadMore(){
+    let pageNumber=this.data.pageNumber
+    let that=this
+    if(that.data.items.length>=that.data.totalCount){
+        return
+    }
+    scoreActivity({pageNumber:pageNumber+1,pageSize:that.data.pageSize}).then(res=>{
+      let moreList=res.data.items
+      let items=that.data.items
+      if(moreList.length>0){
+        let newList=items.concat(moreList)
+        console.log(newList)
+        that.setData({
+          items:newList,
+          pageNumber:pageNumber+1
+        })
+      } 
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that=this
-    scoreActivity().then(res=>{
+    scoreActivity({pageNumber:this.data.pageNumber,pageSize:this.data.pageSize}).then(res=>{
       that.setData(res.data)
     })
   },

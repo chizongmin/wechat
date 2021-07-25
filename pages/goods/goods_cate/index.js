@@ -53,7 +53,11 @@ Page({
     let id = e.currentTarget.dataset.id;
     console.log(id)
     saveToBag({goodsId:id}).then(res=>{
-      
+    })
+    wx.showToast({
+      title: '已加入到购物车',
+      icon: 'none',
+      duration: 1000
     })
   },
   detailClick:function(e){
@@ -107,7 +111,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    let that=this
+    tabMapGoods().then(res=>{
+      let top0=that.data.tabList[0]
+      that.setData({
+        navActive: 0,
+        productList:res.data[top0.id],
+      })
+  })
   },
 
   /**

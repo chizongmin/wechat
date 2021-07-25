@@ -22,27 +22,25 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/goods/goods_cate/index",
-        "iconPath": "pages/image/goods.png",
-        "selectedIconPath": "pages/image/goods-click.png",
-        "text": "商品"
+        "iconPath": "image/fenlei.png",
+        "selectedIconPath": "image/fenlei-click.png"
       },
       {
         "pagePath": "pages/user/shopping_bag/index",
-        "iconPath": "pages/image/shopping-bag.png",
-        "selectedIconPath": "pages/image/shopping-bag-click.png",
-        "text": "购物袋"
+        "iconPath": "image/gouwu.png",
+        "selectedIconPath": "image/gouwu-click.png"
       },
       {
         "pagePath": "pages/user/home/index",
-        "iconPath": "pages/image/me.png",
-        "selectedIconPath": "pages/image/me-click.png",
-        "text": "我的"
+        "iconPath": "image/wode.png",
+        "selectedIconPath": "image/wode-click.png"
       }
     ]
   },

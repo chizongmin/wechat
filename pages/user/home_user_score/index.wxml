@@ -14,7 +14,7 @@
     </view>
   </view>
   <view class="bottom middle">
-    <scroll-view class="scroll middle" scroll-y="true" scroll-with-animation='true'>
+    <scroll-view class="scroll middle" scroll-y="true" scroll-with-animation='true' bindscrolltolower="loadMore">
       <block wx:for="{{items}}" wx:for-item="item" wx:key='index'>
        <view class="item middle">
           <view class="left">

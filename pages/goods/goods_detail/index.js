@@ -37,7 +37,11 @@ Page({
     let that=this
     let id = e.currentTarget.dataset.id;
     saveToBag({goodsId:id}).then(res=>{
-      
+    })
+    wx.showToast({
+      title: '请选择收货地址！',
+      icon: 'none',
+      duration: 2000
     })
   },
   confirm:function(e){

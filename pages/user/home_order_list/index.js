@@ -13,7 +13,7 @@ Page({
       params:{
         from:null,
         status:"",
-        pageSize:10,
+        pageSize:5,
         pageNumber:1
       }
   },
@@ -22,7 +22,7 @@ Page({
     this.setData({
       tabActive: id,
       'params.status':id,
-      'params.pageSize':10,
+      'params.pageSize':5,
       'params.pageNumber':1
     });
     this.orderList()
@@ -35,6 +35,26 @@ Page({
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', {orderId:orderId})
       }
+    })
+  },
+  loadMore(){
+    let params=this.data.params
+    params.pageNumber=params.pageNumber+1
+    let that=this
+    if(that.data.orderList.length>=that.data.totalCount){
+        return
+    }
+    userOrderList(params).then(res=>{
+      let moreList=res.data.items
+      let items=that.data.orderList
+      if(moreList.length>0){
+        let newList=items.concat(moreList)
+        console.log(newList)
+        that.setData({
+          orderList:newList,
+          pageNumber:params.pageNumber+1
+        })
+      } 
     })
   },
   orderList(){ //订单列表

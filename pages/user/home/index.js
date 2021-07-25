@@ -90,7 +90,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that=this
+    home().then(res=>{
+      that.setData({
+        user:res.data
+      })
+    })
   },
 
   /**
@@ -111,7 +116,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    let that=this
+    home().then(res=>{
+      that.setData({
+        user:res.data
+      })
+    })
   },
 
   /**

@@ -178,8 +178,10 @@ Page({
   nothing:function(){
   },
   confirm:function(e){
+    console.log(11)
     let checked=this.data.bagList.filter(item=>item.checked==true)
-    if(!checked){
+  
+    if(checked.length==0){
       wx.showToast({
         title: '最少选择一个哦！',
         icon: 'none',
@@ -188,8 +190,9 @@ Page({
       return
     }
     let params=checked.map(item=>{return {id:item.id,count:item.bagTotal}})
+    console.log(params)
     wx.navigateTo({
-      url: '/pages/order_confirm/index',
+      url: '/pages/order/order_confirm/index',
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', params)
@@ -200,21 +203,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.bagList()
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.bagList()
+    this.setData({
+      action:'编辑'
+    })
   },
 
   /**

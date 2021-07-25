@@ -24,9 +24,9 @@ Page({
     let remark=this.data.remark
     if(!addressId){
       wx.showToast({
-        title: '请选择收货地址！',
+        title: '已加入到购物车',
         icon: 'none',
-        duration: 2000
+        duration: 1000
       })
       return
     }
@@ -47,10 +47,9 @@ Page({
           }
         })
       }else{
-        wx.showToast({
-          title: res.message,
-          icon: 'none',
-          duration: 2000
+        wx.showModal({
+          title: '提示',
+          content: res.message
         })
       }
     })
@@ -122,10 +121,6 @@ Page({
         let goods=res.data.goods
         let userCoupons=res.data.userCoupons
         let coupon={}
-        if(userCoupons.length>0){
-          coupon=userCoupons[0]
-        }
-        console.log(coupon)
         goods.forEach(item=>{
           let single=data.find(it=>it.id==item.id)
           item.confirmCount=single.count

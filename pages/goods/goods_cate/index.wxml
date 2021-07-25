@@ -36,7 +36,7 @@
                      </view>
                      <view class="sale">
                         <text>累计销量{{item.saleNumber}}件</text>
-                        <image class="pic" src='/pages/image/plus.png' data-id='{{item.id}}' catchtap="saveToBag"></image>
+                        <image class="pic" src='/image/plus.png' data-id='{{item.id}}' catchtap="saveToBag"></image>
                      </view>
                   </view>               
                </view>
