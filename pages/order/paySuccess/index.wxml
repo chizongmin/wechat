@@ -24,13 +24,13 @@
           <text>提示</text>
         </view>
         <view class="content">
-          <text>我们将尽快为您发货，订单详情可前往 我的-订单 查看</text>
+          <text> {{successTip!=null?successTip:"我们将尽快为您发货，订单详情可前往 我的-订单"}}</text>
         </view>
     </view>
   </view>
   <view class="bottom middle">
     <button class="button" size="mini" style="width:500rpx;height:85rpx" bindtap="complete">
-        <text class="text" style="font-size:35rpx">完成</text>
+        <text class="text" style="font-size:35rpx">查看订单</text>
     </button>
   </view>
   <view class="space"></view>

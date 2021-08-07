@@ -9,8 +9,16 @@ Page({
 
   },
   complete(){
-    wx.switchTab({
-      url: '/pages/goods/goods_cate/index'
+    // wx.switchTab({
+    //   url: '/pages/goods/goods_cate/index'
+    // })
+    let orderId=this.data.id;
+    wx.navigateTo({
+      url: '/pages/user/home_order_detail/index',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {orderId:orderId})
+      }
     })
   },
   /**

@@ -39,7 +39,7 @@ Page({
     saveToBag({goodsId:id}).then(res=>{
     })
     wx.showToast({
-      title: '请选择收货地址！',
+      title: '已加入到购物车！',
       icon: 'none',
       duration: 2000
     })

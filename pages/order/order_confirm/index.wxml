@@ -13,13 +13,13 @@
           <view class="contact namePhone">
             <text>{{address.name}}   {{address.phone}}</text>
           </view>
-          <view class="splitLine"></view>
+          <!-- <view class="splitLine"></view>
           <view class="title">
             <text>送达时间</text>
           </view>
           <view class="tip">
             <text>您的订单最晚于明天送达</text>
-          </view>
+          </view> -->
         </view>
         <view class="split"></view>
         <view class="pay">
